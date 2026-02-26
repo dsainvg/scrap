@@ -25,17 +25,25 @@ class LinkClassifier:
     Uses NVIDIA API with Qwen model and API key rotation for higher rate limits.
     """
     
-    def __init__(self, model: str = "qwen/qwen3.5-397b-a17b", use_key_rotation: bool = True):
+    def __init__(self, model: str = "qwen/qwen3.5-397b-a17b", use_key_rotation: bool = True, cache_file: str = "data/link_classification_cache.json"):
         """
         Initialize the link classifier with NVIDIA API.
         
         Args:
             model: NVIDIA model to use for classification (default: qwen/qwen3.5-397b-a17b)
             use_key_rotation: Use API key manager for rotation (default: True)
+            cache_file: Path to cache file for storing processed links (default: data/link_classification_cache.json)
         """
         self.model = model
         self.invoke_url = "https://integrate.api.nvidia.com/v1/chat/completions"
         self.use_key_rotation = use_key_rotation
+        self.cache_file = cache_file
+        
+        # Initialize classification cache
+        self.classification_cache: Dict[str, Dict] = {}
+        self.cache_hits = 0
+        self.cache_misses = 0
+        self._load_cache()
         
         # Initialize API key manager
         if use_key_rotation:
@@ -81,6 +89,56 @@ Respond ONLY with a JSON object in this exact format:
 
 Prioritize course pages (individual courses) over course-relevant (course lists)."""
     
+    def _load_cache(self):
+        """Load classification cache from file"""
+        try:
+            if os.path.exists(self.cache_file):
+                with open(self.cache_file, 'r', encoding='utf-8') as f:
+                    self.classification_cache = json.load(f)
+                logger.info(f"Loaded {len(self.classification_cache)} cached classifications from {self.cache_file}")
+            else:
+                logger.info("No cache file found. Starting with empty cache.")
+        except Exception as e:
+            logger.warning(f"Failed to load cache: {str(e)}. Starting with empty cache.")
+            self.classification_cache = {}
+    
+    def _save_cache(self):
+        """Save classification cache to file"""
+        try:
+            os.makedirs(os.path.dirname(self.cache_file), exist_ok=True)
+            with open(self.cache_file, 'w', encoding='utf-8') as f:
+                json.dump(self.classification_cache, f, indent=2, ensure_ascii=False)
+            logger.debug(f"Saved {len(self.classification_cache)} classifications to cache")
+        except Exception as e:
+            logger.error(f"Failed to save cache: {str(e)}")
+    
+    def _get_cache_key(self, url: str) -> str:
+        """Generate cache key from URL (normalized)"""
+        # Normalize URL for consistent caching
+        from urllib.parse import urlparse, urlunparse
+        parsed = urlparse(url)
+        # Remove fragments and normalize
+        normalized = urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, parsed.query, ''))
+        return normalized.lower().strip()
+    
+    def _get_from_cache(self, url: str) -> Optional[Dict]:
+        """Get classification result from cache"""
+        cache_key = self._get_cache_key(url)
+        if cache_key in self.classification_cache:
+            self.cache_hits += 1
+            logger.info(f"✓ Cache HIT for: {url}")
+            return self.classification_cache[cache_key]
+        else:
+            self.cache_misses += 1
+            return None
+    
+    def _store_in_cache(self, url: str, result: Dict):
+        """Store classification result in cache and save to file"""
+        cache_key = self._get_cache_key(url)
+        self.classification_cache[cache_key] = result
+        # Save cache after every new API call result
+        self._save_cache()
+    
     def classify_link(self, url: str, context_url: str = None, link_text: str = None, html_context: Dict = None) -> Dict:
         """
         Classify a single link using AI.
@@ -94,6 +152,14 @@ Prioritize course pages (individual courses) over course-relevant (course lists)
         Returns:
             Dictionary with classification results
         """
+        # Check cache first
+        cached_result = self._get_from_cache(url)
+        if cached_result:
+            # Add URL to cached result
+            result = {**cached_result, 'url': url, 'from_cache': True}
+            logger.debug(f"Using cached classification for: {url}")
+            return result
+        
         try:
             # Prepare user message with context
             user_message = f"""Analyze this link:
@@ -162,6 +228,10 @@ Found on page: {context_url or 'N/A'}"""
             # Extract JSON from response
             result = self._parse_classification_response(content)
             result['url'] = url
+            result['from_cache'] = False
+            
+            # Store in cache
+            self._store_in_cache(url, result)
             
             # Detailed logging of AI classification
             logger.info(f"\n{'='*80}")
@@ -208,6 +278,7 @@ Found on page: {context_url or 'N/A'}"""
     def classify_links_batch(self, links: List[Dict], context_url: str = None, batch_size: int = 10) -> List[Dict]:
         """
         Classify multiple links efficiently in batches using a single API call per batch.
+        Checks cache first and only processes uncached links.
         
         Args:
             links: List of dictionaries with 'url' and optional 'text' and 'html_context' keys
@@ -217,12 +288,43 @@ Found on page: {context_url or 'N/A'}"""
         Returns:
             List of classification results
         """
-        all_results = []
+        # STEP 1: Check cache for ALL links BEFORE any batch processing
+        logger.info(f"Checking cache for {len(links)} links before batch processing...")
         
-        # Process links in batches
-        for i in range(0, len(links), batch_size):
-            batch = links[i:i+batch_size]
-            logger.info(f"Processing batch {i//batch_size + 1}: {len(batch)} links")
+        all_results = []
+        uncached_links = []
+        uncached_indices = []
+        
+        for idx, link_info in enumerate(links):
+            url = link_info.get('url')
+            cached_result = self._get_from_cache(url)
+            if cached_result:
+                # Use cached result - no API call needed
+                result = {**cached_result, 'url': url, 'from_cache': True}
+                all_results.append((idx, result))
+            else:
+                # Need to process with AI
+                uncached_links.append(link_info)
+                uncached_indices.append(idx)
+        
+        # Log cache statistics
+        cache_hit_count = len(all_results)
+        cache_miss_count = len(uncached_links)
+        logger.info(f"Cache check complete: {cache_hit_count} hits, {cache_miss_count} misses")
+        
+        if not uncached_links:
+            # All links were cached - no API calls needed!
+            logger.info("✓ All links found in cache! No AI calls needed.")
+            return [result for _, result in sorted(all_results)]
+        
+        # STEP 2: Process only uncached links in batches
+        logger.info(f"Processing {cache_miss_count} uncached links in batches of {batch_size}...")
+        
+        # Process uncached links in batches
+        for i in range(0, len(uncached_links), batch_size):
+            batch = uncached_links[i:i+batch_size]
+            batch_indices = uncached_indices[i:i+batch_size]
+            logger.info(f"Processing batch {i//batch_size + 1}: {len(batch)} uncached links")
             
             # Prepare batch message for AI
             batch_message = f"""Analyze these {len(batch)} links and classify each one:
@@ -300,12 +402,21 @@ Links to classify:
                 
                 batch_results = self._parse_batch_response(content, batch)
                 
-                # Add URLs to results and log each classification
-                for idx, (link_info, result) in enumerate(zip(batch, batch_results), 1):
+                # STEP 3: Store each result in cache immediately after API call
+                logger.info(f"Saving {len(batch)} results to cache...")
+                for idx, (link_info, result, orig_idx) in enumerate(zip(batch, batch_results, batch_indices), 1):
                     result['url'] = link_info['url']
-                    all_results.append(result)
+                    result['from_cache'] = False
                     
-                    # Log individual result from batch
+                    # Store in cache (saves to file immediately)
+                    self._store_in_cache(link_info['url'], result)
+                    
+                    all_results.append((orig_idx, result))
+                
+                logger.info(f"✓ Saved batch results to cache file")
+                
+                # Log individual results from batch
+                for idx, (link_info, result) in enumerate(zip(batch, batch_results), 1):
                     logger.info(f"  [{idx}] {link_info['url']}")
                     logger.info(f"      Back Link: {result.get('is_back_link', False)} | "
                                f"Course Page: {result.get('is_course_page', False)} | "
@@ -317,18 +428,20 @@ Links to classify:
             except Exception as e:
                 logger.error(f"Batch classification error: {str(e)}")
                 # Fallback: return conservative results for failed batch
-                for link_info in batch:
-                    all_results.append({
+                for link_info, orig_idx in zip(batch, batch_indices):
+                    all_results.append((orig_idx, {
                         'url': link_info['url'],
                         'is_back_link': False,
                         'is_course_page': False,
                         'is_course_relevant': False,
                         'confidence': 0.0,
                         'reasoning': f'Batch error: {str(e)}',
-                        'error': True
-                    })
+                        'error': True,
+                        'from_cache': False
+                    }))
         
-        return all_results
+        # Sort results by original index and return just the results
+        return [result for _, result in sorted(all_results)]
     
     def _parse_batch_response(self, response: str, batch: List[Dict]) -> List[Dict]:
         """Parse batch AI response into individual classification results"""
@@ -619,3 +732,31 @@ Links to classify:
             self.key_manager.print_stats()
         else:
             logger.info("API key rotation is disabled. No stats available.")
+    
+    def get_cache_stats(self) -> Dict:
+        """Get cache hit/miss statistics"""
+        total = self.cache_hits + self.cache_misses
+        hit_rate = (self.cache_hits / total * 100) if total > 0 else 0
+        return {
+            'cache_size': len(self.classification_cache),
+            'cache_hits': self.cache_hits,
+            'cache_misses': self.cache_misses,
+            'hit_rate': hit_rate
+        }
+    
+    def print_cache_stats(self):
+        """Print cache statistics"""
+        stats = self.get_cache_stats()
+        logger.info(f"\n{'='*60}")
+        logger.info("CLASSIFICATION CACHE STATISTICS")
+        logger.info(f"{'='*60}")
+        logger.info(f"Cache Size: {stats['cache_size']} entries")
+        logger.info(f"Cache Hits: {stats['cache_hits']}")
+        logger.info(f"Cache Misses: {stats['cache_misses']}")
+        logger.info(f"Hit Rate: {stats['hit_rate']:.1f}%")
+        logger.info(f"{'='*60}\n")
+    
+    def save_cache(self):
+        """Manually save cache to file"""
+        self._save_cache()
+        logger.info(f"Cache saved to {self.cache_file}")

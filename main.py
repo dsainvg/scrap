@@ -152,9 +152,12 @@ def main():
         # Print summary
         print_results_summary(results)
         
-        # Print API key usage stats if AI was enabled
+        # Print API key usage stats and cache stats if AI was enabled
         if not args.no_ai and scraper.classifier:
             scraper.classifier.print_api_stats()
+            scraper.classifier.print_cache_stats()
+            # Save cache to file
+            scraper.classifier.save_cache()
         
         # Log completion
         logger.info(f"Scraping completed successfully!")
