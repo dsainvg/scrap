@@ -1,0 +1,1858 @@
+{
+  "base_url": "https://cse.iitkgp.ac.in/faculty4.php",
+  "visited_urls": [
+    "https://cse.iitkgp.ac.in/faculty4.php"
+  ],
+  "all_extracted_links": [
+    {
+      "url": "http://cse.iitkgp.ac.in/~abhij/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~abhij/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ADsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": ""
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~abhijnan/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://cse.iitkgp.ac.in/~abhijnan/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ABCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Abhijit  Das"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~adas/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~adas/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ADASsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Abhijnan  Chakraborty"
+      }
+    },
+    {
+      "url": "https://www.persistent.com/company-overview/board-of-directors/anand-deshpande/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://www.persistent.com/company-overview/board-of-directors/anand-deshpande/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ASDsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Abir  Das"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~animeshm/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~animeshm/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/AMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Anand  Despande"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~aritrah/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~aritrah/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/AHsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Animesh  Mukherjee"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~agupta/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~agupta/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/AGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Aritra  Hazra"
+      }
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~ayanc",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~ayanc\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ACsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Arobinda  Gupta"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~bivasm/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~bivasm/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/BMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Ayan  Chaudhury"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~chitta/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~chitta/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/CRMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Bivas  Mitra"
+      }
+    },
+    {
+      "url": "https://sites.google.com/view/debadityaroy/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://sites.google.com/view/debadityaroy/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/DRsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Chittaranjan  Mandal"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~dsamanta/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~dsamanta/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/DSMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Debaditya  Roy"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~debdeep/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~debdeep/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/DMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Debasis  Samanta"
+      }
+    },
+    {
+      "url": "http://www.iitkgp.ac.in/department/CS/faculty/cs-drc",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.iitkgp.ac.in/department/CS/faculty/cs-drc\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/DRCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Debdeep  Mukhopadhyay"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~isg/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~isg/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ISGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Dipanwita  Roy Chowdhury"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~jay/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~jay/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/JMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Indranil  Sengupta"
+      }
+    },
+    {
+      "url": "https://jibesh.com/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://jibesh.com/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/JBPsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Jayanta  Mukhopadhyay"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~ksrao/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~ksrao/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/KSRsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Jibesh  Patra"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~mainack/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://cse.iitkgp.ac.in/~mainack/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/MMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "K Sreenivas Rao"
+      }
+    },
+    {
+      "url": "https://monosijm.github.io/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://monosijm.github.io/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/MSMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Mainack  Mondal"
+      }
+    },
+    {
+      "url": "https://niloy-ganguly.github.io/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://niloy-ganguly.github.io/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/NGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Monosij  Maitra"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~pabitra/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~pabitra/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Niloy  Ganguly"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~palash/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~palash/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PDsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Pabitra  Mitra"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~pb/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~pb/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PBsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Palash  Dey"
+      }
+    },
+    {
+      "url": "http://www.iitkgp.ac.in/department/CS/faculty/cs-ppchak",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.iitkgp.ac.in/department/CS/faculty/cs-ppchak\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PPCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Partha  Bhowmick"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~pawang/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~pawang/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Partha Pratim Chakrabarti"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~pralay/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~pralay/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PRMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Pawan  Goyal"
+      }
+    },
+    {
+      "url": "https://sites.google.com/site/rschakraborty/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://sites.google.com/site/rschakraborty/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/RSCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Pralay  Mitra"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~sandipc/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~sandipc/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Rajat Subhra Chakraborty"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~saptarshi",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~saptarshi\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SRGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sandip  Chakraborty"
+      }
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~sarani",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~sarani\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SRBsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Saptarshi  Ghosh"
+      }
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~satrajit",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~satrajit\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/STGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sarani  Bhattacharya"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~shamik/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~shamik/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SHSsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Satrajit  Ghosh"
+      }
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~saditya",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~saditya\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SAsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Shamik  Sural"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~somindu/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~somindu/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SCRsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Somak  Aditya"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~skg/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~skg/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SKGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Somindu Chaya Ramanna"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~soumya/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~soumya/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SDsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Soumya K Ghosh"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~sourangshu/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~sourangshu/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SBsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Soumyajit  Dey"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~spp/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~spp/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SPPsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sourangshu  Bhattacharya"
+      }
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~skolay/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~skolay/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SKsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sudebkumar Prasant Pal"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~sudeshna/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~sudeshna/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SSsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sudeshna  Kolay"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~smisra/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~smisra/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sudeshna  Sarkar"
+      }
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ADsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ABCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ADASsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ASDsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/AMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/AHsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/AGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ACsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/BMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/CRMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/DRsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/DSMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/DMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/DRCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ISGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/JMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/JBPsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/KSRsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/MMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/MSMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/NGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PDsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PBsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PPCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PRMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/RSCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SRGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SRBsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/STGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SHSsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SAsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SCRsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SKGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SDsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SBsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SPPsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SKsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SSsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    }
+  ],
+  "external_links": [
+    {
+      "url": "https://www.persistent.com/company-overview/board-of-directors/anand-deshpande/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://www.persistent.com/company-overview/board-of-directors/anand-deshpande/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ASDsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Abir  Das"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~agupta/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~agupta/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/AGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Aritra  Hazra"
+      }
+    },
+    {
+      "url": "https://sites.google.com/view/debadityaroy/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://sites.google.com/view/debadityaroy/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/DRsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Chittaranjan  Mandal"
+      }
+    },
+    {
+      "url": "http://www.iitkgp.ac.in/department/CS/faculty/cs-drc",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.iitkgp.ac.in/department/CS/faculty/cs-drc\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/DRCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Debdeep  Mukhopadhyay"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~isg/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~isg/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ISGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Dipanwita  Roy Chowdhury"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~jay/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~jay/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/JMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Indranil  Sengupta"
+      }
+    },
+    {
+      "url": "https://jibesh.com/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://jibesh.com/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/JBPsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Jayanta  Mukhopadhyay"
+      }
+    },
+    {
+      "url": "https://monosijm.github.io/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://monosijm.github.io/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/MSMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Mainack  Mondal"
+      }
+    },
+    {
+      "url": "https://niloy-ganguly.github.io/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://niloy-ganguly.github.io/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/NGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Monosij  Maitra"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~pabitra/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~pabitra/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Niloy  Ganguly"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~pb/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~pb/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PBsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Palash  Dey"
+      }
+    },
+    {
+      "url": "http://www.iitkgp.ac.in/department/CS/faculty/cs-ppchak",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.iitkgp.ac.in/department/CS/faculty/cs-ppchak\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PPCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Partha  Bhowmick"
+      }
+    },
+    {
+      "url": "https://sites.google.com/site/rschakraborty/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://sites.google.com/site/rschakraborty/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/RSCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Pralay  Mitra"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~shamik/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~shamik/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SHSsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Satrajit  Ghosh"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~skg/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~skg/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SKGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Somindu Chaya Ramanna"
+      }
+    },
+    {
+      "url": "http://www.facweb.iitkgp.ac.in/~sudeshna/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://www.facweb.iitkgp.ac.in/~sudeshna/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SSsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sudeshna  Kolay"
+      }
+    }
+  ],
+  "course_pages": [],
+  "course_relevant_links": [],
+  "back_links": [
+    {
+      "url": "https://cse.iitkgp.ac.in/~mainack/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://cse.iitkgp.ac.in/~mainack/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/MMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "K Sreenivas Rao"
+      },
+      "classification": "back_link",
+      "method": "heuristic"
+    }
+  ],
+  "irrelevant_links": [
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ADsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ABCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ADASsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ASDsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/AMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/AHsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/AGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ACsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/BMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/CRMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/DRsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/DSMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/DMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/DRCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/ISGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/JMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/JBPsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/KSRsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/MMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/MSMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/NGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PDsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PBsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PPCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/PRMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/RSCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SCsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SRGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SRBsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/STGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SHSsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SAsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SCRsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SKGsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SDsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SBsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SPPsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SKsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SSsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/facimg/SMsmall.jpg?1772114180",
+      "text": "img01",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "img"
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~abhij/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~abhij/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ADsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": ""
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~abhijnan/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"https://cse.iitkgp.ac.in/~abhijnan/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ABCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Abhijit  Das"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~adas/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~adas/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ADASsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Abhijnan  Chakraborty"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~animeshm/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~animeshm/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/AMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Anand  Despande"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~aritrah/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~aritrah/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/AHsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Animesh  Mukherjee"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~ayanc",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~ayanc\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/ACsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Arobinda  Gupta"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~bivasm/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~bivasm/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/BMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Ayan  Chaudhury"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~chitta/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~chitta/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/CRMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Bivas  Mitra"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~dsamanta/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~dsamanta/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/DSMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Debaditya  Roy"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~debdeep/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~debdeep/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/DMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Debasis  Samanta"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~ksrao/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~ksrao/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/KSRsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Jibesh  Patra"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link points to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~palash/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~palash/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PDsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Pabitra  Mitra"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link points to a faculty member's personal homepage, which is considered a profile, not course content.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~pawang/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~pawang/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Partha Pratim Chakrabarti"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link targets a faculty profile page; guidelines state faculty profiles are not course-relevant.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~pralay/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~pralay/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/PRMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Pawan  Goyal"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "URL structure indicates a faculty member's site, lacking course codes or specific course listing context.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~sandipc/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~sandipc/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SCsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Rajat Subhra Chakraborty"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "This is a link to a professor's main page, classified as irrelevant per faculty profile rules.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~saptarshi",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~saptarshi\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SRGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sandip  Chakraborty"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Points to a faculty member's directory page, not a specific course or course catalog.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~sarani",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~sarani\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SRBsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Saptarshi  Ghosh"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Faculty homepage links are excluded from course-relevant categories unless pointing to specific teaching sections.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~satrajit",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~satrajit\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/STGsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sarani  Bhattacharya"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link leads to a faculty profile, which is explicitly marked as not course-relevant.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~saditya",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~saditya\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SAsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Shamik  Sural"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Standard faculty homepage URL pattern; does not indicate a specific course page or list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~somindu/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~somindu/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SCRsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Somak  Aditya"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link directs to a faculty member's personal site, classified as irrelevant for course scraping.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~soumya/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~soumya/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SDsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Soumya K Ghosh"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link points to a faculty member's personal homepage, not a specific course page or course list.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~sourangshu/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~sourangshu/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SBsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Soumyajit  Dey"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link points to a faculty member's personal homepage, which is not a course page or course listing.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~spp/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~spp/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SPPsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sourangshu  Bhattacharya"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link points to a faculty member's personal homepage, not a specific course or course catalog.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "http://cse.iitkgp.ac.in/~skolay/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"http://cse.iitkgp.ac.in/~skolay/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SKsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sudebkumar Prasant Pal"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link points to a faculty member's personal homepage, lacking course codes or course list indicators.",
+      "classification": "irrelevant"
+    },
+    {
+      "url": "https://cse.iitkgp.ac.in/~smisra/",
+      "text": "",
+      "title": "",
+      "source_url": "https://cse.iitkgp.ac.in/faculty4.php",
+      "tag": "a",
+      "html_context": {
+        "parent_block": "<div class=\"col-md-4\" style=\"position: relative;\">\n<a class=\"fcardclsanc\" href=\"//cse.iitkgp.ac.in/~smisra/\" style=\"font-weight:normal;\" target=\"_blank\"> <img alt=\"img01\" class=\"facimgcontainer\" src=\"./facimg/SMsmall.jpg?1772114180\" style=\"margin-top: 15px; margin-left: 45px;\"/> </a>\n</div>",
+        "previous_block": "",
+        "parent_text": "",
+        "heading_above": "Sudeshna  Sarkar"
+      },
+      "is_back_link": false,
+      "is_course_page": false,
+      "is_course_relevant": false,
+      "confidence": 0.95,
+      "reasoning": "Link points to a faculty member's personal homepage, which is not a course page or course listing.",
+      "classification": "irrelevant"
+    }
+  ],
+  "stats": {
+    "total_visited": 1,
+    "total_links_extracted": 84,
+    "external_links": 16,
+    "same_domain_links": 68,
+    "course_pages": 0,
+    "course_relevant": 0,
+    "back_links": 1,
+    "irrelevant": 67
+  }
+}
