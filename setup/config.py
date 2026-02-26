@@ -11,7 +11,7 @@ SCRAPER_TIMEOUT = 45
 SCRAPER_DELAY = 1
 
 # Maximum depth for recursive scraping
-MAX_SCRAPING_DEPTH = 1
+MAX_SCRAPING_DEPTH = 7
 
 # Request timeout constant (used in scraper.py)
 REQUEST_TIMEOUT = SCRAPER_TIMEOUT
