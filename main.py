@@ -104,6 +104,8 @@ def main():
                        help='Disable AI classification (extract all links)')
     parser.add_argument('--output', type=str, default='data/scraped_links.json',
                        help='Output file path for results')
+    parser.add_argument('--save-interval', type=int, default=200,
+                       help='Save results every N links processed (default: 200)')
     
     args = parser.parse_args()
     
@@ -139,14 +141,21 @@ def main():
         # Initialize scraper
         scraper = IntelligentScraper(
             base_url=args.url,
-            use_ai_classification=not args.no_ai
+            use_ai_classification=not args.no_ai,
+            save_interval=args.save_interval,
+            output_file=args.output
         )
+        
+        logger.info(f"Periodic save enabled: every {args.save_interval} links")
         
         # Run scraping
         logger.info("Starting scraping process...")
         results = scraper.scrape(max_depth=args.depth)
         
-        # Save results
+        # Final save
+        logger.info(f"\n{'='*60}")
+        logger.info(f"FINAL SAVE: {scraper.total_links_processed} total links processed")
+        logger.info(f"{'='*60}")
         output_path = scraper.save_results(output_file=args.output)
         
         # Print summary
@@ -172,7 +181,15 @@ def main():
         return results
         
     except KeyboardInterrupt:
-        logger.warning("Scraping interrupted by user")
+        logger.warning("\n\nScraping interrupted by user")
+        logger.info("Saving progress before exit...")
+        try:
+            if 'scraper' in locals():
+                scraper.save_results(output_file=args.output)
+                logger.info(f"Progress saved to: {args.output}")
+                logger.info(f"Total links processed: {scraper.total_links_processed}")
+        except Exception as e:
+            logger.error(f"Failed to save progress: {str(e)}")
         sys.exit(1)
     except Exception as e:
         logger.error(f"Error during scraping: {str(e)}", exc_info=True)

@@ -32,13 +32,15 @@ class IntelligentScraper:
     Web scraper that extracts all links from pages and uses AI to filter relevant course links.
     """
     
-    def __init__(self, base_url: str, use_ai_classification: bool = True):
+    def __init__(self, base_url: str, use_ai_classification: bool = True, save_interval: int = 200, output_file: str = 'data/scraped_links.json'):
         """
         Initialize the intelligent scraper.
         
         Args:
             base_url: The starting URL to scrape
             use_ai_classification: Whether to use AI for link classification
+            save_interval: Save results every N links processed (default: 200)
+            output_file: Path to save results (default: data/scraped_links.json)
         """
         self.base_url = base_url
         self.domain = urlparse(base_url).netloc
@@ -50,6 +52,12 @@ class IntelligentScraper:
         self.back_links: List[Dict] = []
         self.irrelevant_links: List[Dict] = []
         self.file_links: List[Dict] = []  # File resources (PDFs, images, etc.)
+        
+        # Periodic save settings
+        self.save_interval = save_interval
+        self.output_file = output_file
+        self.links_processed_since_save = 0
+        self.total_links_processed = 0
         
         # Initialize AI classifier if enabled
         self.use_ai = use_ai_classification
@@ -342,6 +350,14 @@ class IntelligentScraper:
         """Check if URL belongs to the same domain"""
         return urlparse(url).netloc == self.domain
     
+    def _periodic_save(self):
+        """Save current scraping results to file (periodic checkpoint)"""
+        try:
+            self.save_results(output_file=self.output_file)
+            logger.info(f"✓ Progress saved to {self.output_file}")
+        except Exception as e:
+            logger.error(f"Failed to save periodic checkpoint: {str(e)}")
+    
     def is_file_link(self, url: str) -> bool:
         """Check if URL points to a file (image, PDF, video, etc.)"""
         # Common file extensions that should not be checked by AI
@@ -464,6 +480,19 @@ class IntelligentScraper:
             self.course_pages.extend(classified.get('course_pages', []))
             self.course_relevant_links.extend(classified['course_relevant'])
             self.irrelevant_links.extend(classified['irrelevant'])
+            
+            # Update link processing counter
+            links_classified = len(web_page_links)
+            self.links_processed_since_save += links_classified
+            self.total_links_processed += links_classified
+            
+            # Periodic save every N links
+            if self.links_processed_since_save >= self.save_interval:
+                logger.info(f"\n{'='*60}")
+                logger.info(f"PERIODIC SAVE: {self.total_links_processed} links processed")
+                logger.info(f"{'='*60}")
+                self._periodic_save()
+                self.links_processed_since_save = 0
             
             # Log classification stats
             stats = classified['stats']
