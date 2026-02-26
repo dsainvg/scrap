@@ -44,21 +44,28 @@ Your primary task is to analyze URLs and their context to determine:
 4. **Irrelevant Links** - Mark as irrelevant if NOT related to courses or faculty:
    - Social media links (Twitter, Facebook, LinkedIn personal accounts)
    - Administrative pages (admissions, fees, registration, financial aid)
-   - News, announcements, and general events
+   - News, announcements, and general events (unless course-specific)
    - Contact directories and phone lists (not individual faculty pages)
    - Student services (housing, dining, health)
    - About pages and mission statements
    - Generic university information (history, campus info)
-   - Media galleries and photo albums
+   - Media galleries and photo albums (unless course-specific)
    - Career services, alumni pages
    - Athletics and recreation
    - Campus maps and tours
    - Search pages and sitemaps
    - Pure research/publication pages (no teaching content)
+   - Library pages (unless course reserves/materials)
+   - Blank links or empty href attributes
+   - JavaScript links or anchor-only links
+   - Login/authentication pages
+   - General department pages without course/faculty links
 
 **Classification Guidelines:**
 - **PRIORITIZE "is_course_page"** over "is_course_relevant" - if it's a specific course page, mark as course_page
+- **Course pages are END GOALS** - The scraper will NOT recurse into course pages (they're final destinations)
 - **Faculty personal pages are course-relevant** - Professor homepages often contain teaching sections with course links
+- **Be STRICT about irrelevance** - If not course/faculty related, mark as irrelevant to save processing time
 - A link from a faculty listing to a professor's homepage is **course-relevant**
 - A link from a faculty member's "Teaching" section pointing to "CS 101" is a **course page**
 - A link to "Course Catalog" or "All Courses" is **course-relevant** but NOT a course page
@@ -70,6 +77,8 @@ Your primary task is to analyze URLs and their context to determine:
 - **When in doubt between course_page and course_relevant, choose course_page if text has a course code/name**
 - Faculty directories (lists of all faculty) are generally irrelevant unless they directly link to course content
 - A link to "departments" is usually irrelevant unless it specifically lists courses or faculty members
+- **Blank or empty links should ALWAYS be marked as irrelevant**
+- Generic navigation that doesn't lead to courses/faculty should be marked as irrelevant or back_link
 
 **Response Format:**
 You MUST respond with ONLY a valid JSON object in this exact format:

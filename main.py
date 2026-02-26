@@ -49,6 +49,7 @@ def print_results_summary(results: dict):
     print(f"\nLink Classification:")
     print(f"  📄 Course Pages: {results['stats']['course_pages']}")
     print(f"  ✓ Course-Relevant Links: {results['stats']['course_relevant']}")
+    print(f"  📎 File Links: {results['stats'].get('file_links', 0)}")
     print(f"  ← Back Links (filtered): {results['stats']['back_links']}")
     print(f"  ✗ Irrelevant Links: {results['stats']['irrelevant']}")
     print("\n" + "="*60)
@@ -76,6 +77,17 @@ def print_results_summary(results: dict):
         
         if len(results['course_relevant_links']) > 3:
             print(f"   ... and {len(results['course_relevant_links']) - 3} more")
+    
+    # Show some file links
+    if results.get('file_links'):
+        print("\nFile Links Found (PDFs, images, etc.):")
+        for i, link in enumerate(results['file_links'][:5], 1):
+            print(f"{i}. {link['url']}")
+            if 'parent_folder' in link:
+                print(f"   Found in: {link['parent_folder']}")
+        
+        if len(results['file_links']) > 5:
+            print(f"   ... and {len(results['file_links']) - 5} more files")
     
     print("\n" + "="*60 + "\n")
 

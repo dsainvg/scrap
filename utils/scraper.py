@@ -49,6 +49,7 @@ class IntelligentScraper:
         self.course_relevant_links: List[Dict] = []  # Course lists/catalogs
         self.back_links: List[Dict] = []
         self.irrelevant_links: List[Dict] = []
+        self.file_links: List[Dict] = []  # File resources (PDFs, images, etc.)
         
         # Initialize AI classifier if enabled
         self.use_ai = use_ai_classification
@@ -346,15 +347,17 @@ class IntelligentScraper:
         # Common file extensions that should not be checked by AI
         file_extensions = [
             # Images
-            '.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.ico', '.webp',
+            '.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.ico', '.webp', '.tiff', '.tif',
             # Documents
-            '.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx',
+            '.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.odt', '.ods', '.odp',
             # Archives
-            '.zip', '.rar', '.tar', '.gz', '.7z',
+            '.zip', '.rar', '.tar', '.gz', '.7z', '.bz2', '.xz',
             # Media
-            '.mp4', '.mp3', '.avi', '.mov', '.wmv', '.flv', '.wav',
+            '.mp4', '.mp3', '.avi', '.mov', '.wmv', '.flv', '.wav', '.mkv', '.webm',
+            # Code/Data
+            '.css', '.js', '.json', '.xml', '.txt', '.csv', '.sql', '.log',
             # Other
-            '.css', '.js', '.json', '.xml', '.txt', '.csv'
+            '.epub', '.mobi', '.azw', '.djvu', '.ps', '.eps'
         ]
         
         # Parse URL and get the path
@@ -368,6 +371,21 @@ class IntelligentScraper:
         
         # Check for query string parameters that indicate files
         if any(ext in path for ext in file_extensions):
+            return True
+        
+        # Check for files with dots followed by extension-like patterns (e.g., document.pdf, file.xyz)
+        # Look for pattern: /something.ext or /path/file.ext at the end
+        import re
+        # Match URLs that end with filename.extension pattern
+        file_pattern = r'/[^/]+\.[a-zA-Z0-9]{2,4}$'
+        if re.search(file_pattern, path):
+            # Additional check: make sure it's not a common web page extension
+            web_extensions = ['.html', '.htm', '.php', '.asp', '.aspx', '.jsp', '.do']
+            if not any(path.endswith(ext) for ext in web_extensions):
+                return True
+        
+        # Check for download links or file attachments in query params
+        if 'download' in url.lower() or 'attachment' in url.lower() or 'file=' in url.lower():
             return True
         
         return False
@@ -424,14 +442,17 @@ class IntelligentScraper:
         
         for link in same_domain_links:
             if self.is_file_link(link['url']):
+                # Add parent folder context
+                link['parent_folder'] = url
+                link['parent_depth'] = current_depth
                 file_links.append(link)
             else:
                 web_page_links.append(link)
         
         if file_links:
-            logger.info(f"Skipping AI classification for {len(file_links)} file links (images, PDFs, etc.)")
-            # Store file links as irrelevant for course content, but still extracted
-            self.irrelevant_links.extend(file_links)
+            logger.info(f"Found {len(file_links)} file links (images, PDFs, etc.) - storing with parent context")
+            # Store file links separately with parent folder information
+            self.file_links.extend(file_links)
         
         # Classify links using AI (only web page links, not files)
         if self.use_ai and self.classifier and web_page_links:
@@ -451,21 +472,32 @@ class IntelligentScraper:
                        f"{stats['back_links']} back links, "
                        f"{stats['irrelevant']} irrelevant")
             
-            # Recursively scrape course-relevant links and course pages
+            # Recursively scrape ONLY course-relevant links (catalogs, listings, faculty pages)
+            # DO NOT recurse into course pages (they are end goals) or irrelevant links
             if current_depth < max_depth:
-                # Prioritize course pages
-                for link_info in classified.get('course_pages', []):
-                    next_url = link_info['url']
-                    if next_url not in self.visited_urls:
-                        time.sleep(SCRAPER_DELAY)  # Rate limiting
-                        self.scrape_page(next_url, max_depth, current_depth + 1)
+                logger.info(f"Recursion enabled. Current depth: {current_depth}/{max_depth}")
                 
-                # Also scrape course-relevant links (catalogs, listings)
+                # Only follow course-relevant links (catalogs, listings, faculty pages)
+                # These pages may contain course pages, so we need to explore them
                 for link_info in classified['course_relevant']:
                     next_url = link_info['url']
                     if next_url not in self.visited_urls:
+                        logger.info(f"Following course-relevant link: {next_url}")
                         time.sleep(SCRAPER_DELAY)  # Rate limiting
                         self.scrape_page(next_url, max_depth, current_depth + 1)
+                
+                # DO NOT recurse into course pages - they are the final destination
+                course_page_count = len(classified.get('course_pages', []))
+                if course_page_count > 0:
+                    logger.info(f"Found {course_page_count} course page(s) - NOT recursing (end goals reached)")
+                
+                # DO NOT recurse into irrelevant or back links - save time and API calls
+                irrelevant_count = len(classified['irrelevant'])
+                back_link_count = len(classified['back_links'])
+                if irrelevant_count > 0:
+                    logger.info(f"Skipping {irrelevant_count} irrelevant link(s) - NOT recursing")
+                if back_link_count > 0:
+                    logger.info(f"Skipping {back_link_count} back link(s) - NOT recursing")
         elif web_page_links:
             # Without AI, just collect web page links (files are already in irrelevant)
             logger.info(f"AI classification disabled. Collected {len(web_page_links)} web page links")
@@ -497,6 +529,7 @@ class IntelligentScraper:
             'course_relevant_links': self.course_relevant_links,
             'back_links': self.back_links,
             'irrelevant_links': self.irrelevant_links,
+            'file_links': self.file_links,
             'stats': {
                 'total_visited': len(self.visited_urls),
                 'total_links_extracted': len(self.all_extracted_links),
@@ -505,7 +538,8 @@ class IntelligentScraper:
                 'course_pages': len(self.course_pages),
                 'course_relevant': len(self.course_relevant_links),
                 'back_links': len(self.back_links),
-                'irrelevant': len(self.irrelevant_links)
+                'irrelevant': len(self.irrelevant_links),
+                'file_links': len(self.file_links)
             }
         }
         
@@ -534,6 +568,7 @@ class IntelligentScraper:
             'course_relevant_links': self.course_relevant_links,
             'back_links': self.back_links,
             'irrelevant_links': self.irrelevant_links,
+            'file_links': self.file_links,
             'stats': {
                 'total_visited': len(self.visited_urls),
                 'total_links_extracted': len(self.all_extracted_links),
@@ -542,7 +577,8 @@ class IntelligentScraper:
                 'course_pages': len(self.course_pages),
                 'course_relevant': len(self.course_relevant_links),
                 'back_links': len(self.back_links),
-                'irrelevant': len(self.irrelevant_links)
+                'irrelevant': len(self.irrelevant_links),
+                'file_links': len(self.file_links)
             }
         }
         
