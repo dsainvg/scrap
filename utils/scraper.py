@@ -9,6 +9,7 @@ import logging
 from typing import List, Dict, Set
 import time
 from .link_classifier import LinkClassifier
+from .link_extractor import extract_links_from_html, extract_html_context, is_file_link as _is_file_link
 from setup.config import SCRAPER_TIMEOUT, SCRAPER_DELAY, MAX_SCRAPING_DEPTH
 
 # Set up logging
@@ -75,45 +76,9 @@ class IntelligentScraper:
     def _extract_html_context(self, element) -> Dict[str, str]:
         """
         Extract HTML context around an element for better AI classification.
-        
-        Args:
-            element: BeautifulSoup element (typically an anchor tag)
-        
-        Returns:
-            Dictionary with HTML context blocks
+        Delegates to the unified link_extractor.extract_html_context().
         """
-        context = {
-            'parent_block': '',
-            'previous_block': '',
-            'parent_text': '',
-            'heading_above': ''
-        }
-        
-        try:
-            # Get parent block (div, section, article, li, td, etc.)
-            parent = element.find_parent(['div', 'section', 'article', 'li', 'td', 'tr', 'ul', 'ol'])
-            if parent:
-                # Get parent's HTML (limit to 500 chars to avoid too much context)
-                parent_html = str(parent)[:500]
-                context['parent_block'] = parent_html
-                # Get parent's text content
-                context['parent_text'] = parent.get_text(strip=True)[:200]
-            
-            # Get previous sibling block
-            if parent:
-                prev_sibling = parent.find_previous_sibling(['div', 'section', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'])
-                if prev_sibling:
-                    context['previous_block'] = str(prev_sibling)[:300]
-            
-            # Find nearest heading above the link
-            heading = element.find_previous(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-            if heading:
-                context['heading_above'] = heading.get_text(strip=True)
-        
-        except Exception as e:
-            logger.debug(f"Error extracting HTML context: {str(e)}")
-        
-        return context
+        return extract_html_context(element)
     
     def extract_all_links(self, url: str) -> List[Dict]:
         """
@@ -130,41 +95,22 @@ class IntelligentScraper:
             response = self.session.get(url, timeout=SCRAPER_TIMEOUT)
             response.raise_for_status()
             
+            # Parse HTML once; pass the soup object to avoid a second parse inside
+            # extract_links_from_html (fix for double-parse bug).
             soup = BeautifulSoup(response.text, 'html.parser')
-            links = []
-            seen_urls = set()  # Track unique URLs
-            
-            # Extract ALL anchor tags with href
-            for anchor in soup.find_all('a', href=True):
-                href = anchor.get('href', '').strip()
-                if not href:
-                    continue
-                    
-                text = anchor.get_text(strip=True)
-                title = anchor.get('title', '')
-                
-                # Resolve relative URLs
-                absolute_url = urljoin(url, href)
-                
-                # Skip anchors and javascript
-                if absolute_url.startswith('#') or absolute_url.startswith('javascript:'):
-                    continue
-                
-                if absolute_url not in seen_urls:
-                    seen_urls.add(absolute_url)
-                    
-                    # Extract HTML context for better AI classification
-                    html_context = self._extract_html_context(anchor)
-                    
-                    links.append({
-                        'url': absolute_url,
-                        'text': text,
-                        'title': title,
-                        'source_url': url,
-                        'tag': 'a',
-                        'html_context': html_context
-                    })
-            
+
+            # Unified anchor extraction — all eight rules applied by link_extractor:
+            # empty/fragment/bad-scheme filtering, relative→absolute resolution,
+            # http/https-only, file-link detection, deduplication, HTML context.
+            links = extract_links_from_html(response.text, url, include_context=True, _soup=soup)
+
+            # Build seen_urls with both http and https variants so resource-tag
+            # deduplication is scheme-agnostic (fix for http/https mismatch bug).
+            seen_urls = set()
+            for _lnk in links:
+                seen_urls.add(_lnk['url'])
+                seen_urls.add(_lnk['url'].replace('http://', 'https://', 1))
+
             # Extract links from <link> tags (stylesheets, icons, preload, etc.)
             # Skip stylesheets
             for link_tag in soup.find_all('link', href=True):
@@ -362,57 +308,12 @@ class IntelligentScraper:
             logger.error(f"Failed to save periodic checkpoint: {str(e)}")
     
     def is_file_link(self, url: str) -> bool:
-        """Check if URL points to a file (image, PDF, video, etc.)
-        
-        NOTE: .html, .htm, .php, .asp, .aspx, .jsp files are NOT treated as file links.
-        They are web pages that should be classified by AI.
+        """Check if URL points to a static file (image, PDF, video, etc.).
+
+        NOTE: .html, .htm, .php, .asp, .aspx, .jsp are web pages and always return False.
+        Delegates to the unified link_extractor.is_file_link().
         """
-        # Common file extensions that should not be checked by AI
-        # EXPLICITLY EXCLUDING: .html, .htm, .php, .asp, .aspx, .jsp (these are web pages)
-        file_extensions = [
-            # Images
-            '.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.ico', '.webp', '.tiff', '.tif',
-            # Documents
-            '.pdf', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.odt', '.ods', '.odp',
-            # Archives
-            '.zip', '.rar', '.tar', '.gz', '.7z', '.bz2', '.xz',
-            # Media
-            '.mp4', '.mp3', '.avi', '.mov', '.wmv', '.flv', '.wav', '.mkv', '.webm',
-            # Code/Data
-            '.css', '.js', '.json', '.xml', '.txt', '.csv', '.sql', '.log',
-            # Other
-            '.epub', '.mobi', '.azw', '.djvu', '.ps', '.eps'
-        ]
-        
-        # Parse URL and get the path
-        parsed = urlparse(url.lower())
-        path = parsed.path
-        
-        # Check if the path ends with any file extension
-        for ext in file_extensions:
-            if path.endswith(ext):
-                return True
-        
-        # Check for query string parameters that indicate files
-        if any(ext in path for ext in file_extensions):
-            return True
-        
-        # Check for files with dots followed by extension-like patterns (e.g., document.pdf, file.xyz)
-        # Look for pattern: /something.ext or /path/file.ext at the end
-        import re
-        # Match URLs that end with filename.extension pattern
-        file_pattern = r'/[^/]+\.[a-zA-Z0-9]{2,4}$'
-        if re.search(file_pattern, path):
-            # Additional check: make sure it's not a common web page extension
-            web_extensions = ['.html', '.htm', '.php', '.asp', '.aspx', '.jsp', '.do']
-            if not any(path.endswith(ext) for ext in web_extensions):
-                return True
-        
-        # Check for download links or file attachments in query params
-        if 'download' in url.lower() or 'attachment' in url.lower() or 'file=' in url.lower():
-            return True
-        
-        return False
+        return _is_file_link(url)
     
     def scrape_page(self, url: str, max_depth: int = 2, current_depth: int = 0):
         """
@@ -527,7 +428,6 @@ class IntelligentScraper:
                                         'url': extracted_link['url'],
                                         'text': extracted_link.get('text', ''),
                                         'source': course_link['url'],
-                                        'likely_course_code': extracted_link.get('likely_course_code')
                                     })
                         else:
                             # Page is NOT a course page
@@ -542,7 +442,6 @@ class IntelligentScraper:
                                         'url': extracted_link['url'],
                                         'text': extracted_link.get('text', ''),
                                         'source': course_link['url'],
-                                        'likely_course_code': extracted_link.get('likely_course_code')
                                     })
                             else:
                                 logger.warning(f"✗ Content verification failed (not a course page): {course_link['url']} "

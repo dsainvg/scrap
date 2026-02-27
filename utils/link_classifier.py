@@ -13,6 +13,7 @@ from typing import Dict, List, Optional
 from urllib.parse import urlparse
 from dotenv import load_dotenv
 from .api_key_manager import get_key_manager, APIKeyManager
+from .link_extractor import extract_links_from_html
 
 # Add setup to path for config import
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'setup'))
@@ -123,7 +124,8 @@ Prioritize course pages (individual courses) over course-relevant (course lists)
     def _save_cache(self):
         """Save classification cache to file"""
         try:
-            os.makedirs(os.path.dirname(self.cache_file), exist_ok=True)
+            cache_dir = os.path.dirname(os.path.abspath(self.cache_file))
+            os.makedirs(cache_dir, exist_ok=True)
             with open(self.cache_file, 'w', encoding='utf-8') as f:
                 json.dump(self.classification_cache, f, indent=2, ensure_ascii=False)
             logger.debug(f"Saved {len(self.classification_cache)} classifications to cache")
@@ -178,6 +180,7 @@ Prioritize course pages (individual courses) over course-relevant (course lists)
             logger.debug(f"Using cached classification for: {url}")
             return result
         
+        api_key = None
         try:
             # Prepare user message with context
             user_message = f"""Analyze this link:
@@ -269,7 +272,7 @@ Found on page: {context_url or 'N/A'}"""
             logger.error(f"API request error for {url}: {str(e)}")
             
             # Report error if using key manager
-            if self.use_key_rotation and self.key_manager:
+            if self.use_key_rotation and self.key_manager and api_key:
                 self.key_manager.report_error(api_key)
             
             return {
@@ -874,51 +877,13 @@ Respond with JSON only: {"is_course_page": bool, "confidence": float, "course_co
     
     def _extract_links_from_html_bs4(self, html_content: str, base_url: str) -> list:
         """
-        Extract all hyperlinks from raw HTML using BeautifulSoup.
-        No AI involved — pure DOM parsing.
-
-        Args:
-            html_content: Raw HTML string
-            base_url: Base URL used to resolve relative links
-
-        Returns:
-            List of dicts with 'url' and 'text' keys
+        Extract navigational anchor links from raw HTML.
+        Delegates to the unified link_extractor.extract_links_from_html() so
+        all extraction rules are applied consistently.
+        Context is omitted here (include_context=False) because this method is
+        called during content verification, where AI context hints are not needed.
         """
-        from bs4 import BeautifulSoup
-        from urllib.parse import urljoin, urlparse
-
-        try:
-            soup = BeautifulSoup(html_content, 'html.parser')
-            links = []
-            seen = set()
-
-            for a_tag in soup.find_all('a', href=True):
-                href = a_tag['href'].strip()
-                if not href or href.startswith('#') or href.startswith('javascript:') or href.startswith('mailto:'):
-                    continue
-
-                full_url = urljoin(base_url, href)
-
-                # Only keep http/https links
-                parsed = urlparse(full_url)
-                if parsed.scheme not in ('http', 'https'):
-                    continue
-
-                # Skip file links
-                if self.is_file_link(full_url):
-                    continue
-
-                if full_url in seen:
-                    continue
-                seen.add(full_url)
-
-                links.append({'url': full_url, 'text': a_tag.get_text(strip=True)})
-
-            logger.info(f"BS4 extracted {len(links)} links from {base_url}")
-            return links
-        except Exception as e:
-            logger.error(f"BS4 link extraction failed for {base_url}: {str(e)}")
-            return []
+        return extract_links_from_html(html_content, base_url, include_context=False)
 
     def verify_course_page_content(self, url: str, content_model: str = None) -> Optional[Dict]:
         """
@@ -962,10 +927,11 @@ Content (first 8000 chars):
 Respond with JSON only."""
         
         # Make API call with content analysis model
+        api_key = None
         try:
             # Get API key
             if self.use_key_rotation:
-                api_key = self.key_manager.get_key()
+                api_key = self.key_manager.get_next_key()
             else:
                 api_key = self.api_key
             
@@ -990,7 +956,7 @@ Respond with JSON only."""
             
             # Record successful API call
             if self.use_key_rotation:
-                self.key_manager.record_success(api_key)
+                self.key_manager.report_success(api_key)
             
             # Parse response
             result = response.json()
@@ -1027,8 +993,8 @@ Respond with JSON only."""
                 
         except requests.exceptions.RequestException as e:
             logger.error(f"API request failed for content verification: {str(e)}")
-            if self.use_key_rotation:
-                self.key_manager.record_failure(api_key, str(e))
+            if self.use_key_rotation and api_key:
+                self.key_manager.report_error(api_key)
             return None
         except Exception as e:
             logger.error(f"Unexpected error in content verification: {str(e)}")
