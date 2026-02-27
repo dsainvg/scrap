@@ -32,7 +32,8 @@ class IntelligentScraper:
     Web scraper that extracts all links from pages and uses AI to filter relevant course links.
     """
     
-    def __init__(self, base_url: str, use_ai_classification: bool = True, save_interval: int = 200, output_file: str = 'data/scraped_links.json'):
+    def __init__(self, base_url: str, use_ai_classification: bool = True, save_interval: int = 200, 
+                 output_file: str = 'data/scraped_links.json', verify_course_content: bool = False):
         """
         Initialize the intelligent scraper.
         
@@ -41,6 +42,7 @@ class IntelligentScraper:
             use_ai_classification: Whether to use AI for link classification
             save_interval: Save results every N links processed (default: 200)
             output_file: Path to save results (default: data/scraped_links.json)
+            verify_course_content: Whether to verify course pages by analyzing actual content (default: False)
         """
         self.base_url = base_url
         self.domain = urlparse(base_url).netloc
@@ -61,6 +63,7 @@ class IntelligentScraper:
         
         # Initialize AI classifier if enabled
         self.use_ai = use_ai_classification
+        self.verify_content = verify_course_content
         self.classifier = LinkClassifier() if use_ai_classification else None
         
         # Session for connection pooling
@@ -359,8 +362,13 @@ class IntelligentScraper:
             logger.error(f"Failed to save periodic checkpoint: {str(e)}")
     
     def is_file_link(self, url: str) -> bool:
-        """Check if URL points to a file (image, PDF, video, etc.)"""
+        """Check if URL points to a file (image, PDF, video, etc.)
+        
+        NOTE: .html, .htm, .php, .asp, .aspx, .jsp files are NOT treated as file links.
+        They are web pages that should be classified by AI.
+        """
         # Common file extensions that should not be checked by AI
+        # EXPLICITLY EXCLUDING: .html, .htm, .php, .asp, .aspx, .jsp (these are web pages)
         file_extensions = [
             # Images
             '.jpg', '.jpeg', '.png', '.gif', '.bmp', '.svg', '.ico', '.webp', '.tiff', '.tif',
@@ -475,9 +483,110 @@ class IntelligentScraper:
             logger.info(f"Classifying {len(web_page_links)} web page links with AI")
             classified = self.classifier.filter_links(web_page_links, context_url=url)
             
-            # Store classified links
+            # Store classified links (with deduplication)
             self.back_links.extend(classified['back_links'])
-            self.course_pages.extend(classified.get('course_pages', []))
+            
+            # Deduplicate course_pages before adding
+            existing_course_urls = {link['url'] for link in self.course_pages}
+            new_course_pages = [link for link in classified.get('course_pages', []) 
+                               if link['url'] not in existing_course_urls]
+            
+            # Optional: Verify course pages with content analysis
+            if new_course_pages and self.verify_content and self.classifier:
+                logger.info(f"Verifying {len(new_course_pages)} course pages with content analysis")
+                verified_course_pages = []
+                pages_to_reclassify = []  # Pages that should be course_relevant instead
+                links_to_classify = []  # Extracted links to batch classify
+                
+                for course_link in new_course_pages:
+                    verification = self.classifier.verify_course_page_content(course_link['url'])
+                    
+                    if verification:
+                        # Add verification metadata to the link
+                        course_link['content_verified'] = True
+                        course_link['verification_confidence'] = verification.get('confidence', 0)
+                        course_link['verified_course_code'] = verification.get('course_code')
+                        course_link['verified_course_name'] = verification.get('course_name')
+                        course_link['verified_semester'] = verification.get('semester')
+                        course_link['has_other_course_links'] = verification.get('has_other_course_links', False)
+                        
+                        # Check if page has other course links
+                        has_other_links = verification.get('has_other_course_links', False)
+                        extracted_links = verification.get('course_links_found', [])
+                        
+                        # If content analysis confirms it's a course page, keep it
+                        if verification.get('is_course_page') and verification.get('confidence', 0) > 0.5:
+                            verified_course_pages.append(course_link)
+                            logger.info(f"✓ Verified course page: {course_link['url']}")
+                            
+                            # Process extracted course links if present
+                            if extracted_links and has_other_links:
+                                logger.info(f"  → Found {len(extracted_links)} additional course links in verified page")
+                                for extracted_link in extracted_links:
+                                    links_to_classify.append({
+                                        'url': extracted_link['url'],
+                                        'text': extracted_link.get('text', ''),
+                                        'source': course_link['url'],
+                                        'likely_course_code': extracted_link.get('likely_course_code')
+                                    })
+                        else:
+                            # Page is NOT a course page
+                            # If it has course links, reclassify as course_relevant
+                            if has_other_links and extracted_links:
+                                logger.info(f"↻ Reclassifying as course_relevant (has {len(extracted_links)} course links): {course_link['url']}")
+                                pages_to_reclassify.append(course_link)
+                                
+                                # Add extracted links for classification
+                                for extracted_link in extracted_links:
+                                    links_to_classify.append({
+                                        'url': extracted_link['url'],
+                                        'text': extracted_link.get('text', ''),
+                                        'source': course_link['url'],
+                                        'likely_course_code': extracted_link.get('likely_course_code')
+                                    })
+                            else:
+                                logger.warning(f"✗ Content verification failed (not a course page): {course_link['url']} "
+                                             f"(confidence: {verification.get('confidence', 0):.2f})")
+                    else:
+                        # If verification API failed, still keep the link but mark it
+                        course_link['content_verified'] = False
+                        verified_course_pages.append(course_link)
+                        logger.warning(f"Could not verify content (API error): {course_link['url']}")
+                    
+                    time.sleep(0.5)  # Rate limiting for content verification
+                
+                # Move reclassified pages to course_relevant
+                if pages_to_reclassify:
+                    logger.info(f"Moving {len(pages_to_reclassify)} pages from course_pages to course_relevant")
+                    for page in pages_to_reclassify:
+                        page['classification'] = 'course_relevant'
+                        page['reclassified_from'] = 'course_page'
+                        page['reason'] = 'has_other_course_links'
+                        self.course_relevant_links.append(page)
+                
+                # Batch classify extracted links if any
+                if links_to_classify:
+                    logger.info(f"Batch classifying {len(links_to_classify)} extracted course links")
+                    classified_extracted = self.classifier.filter_links(links_to_classify, context_url=url)
+                    
+                    # Add newly classified course pages (avoid duplicates)
+                    existing_urls = {link['url'] for link in self.course_pages}
+                    new_extracted_courses = [link for link in classified_extracted.get('course_pages', [])
+                                            if link['url'] not in existing_urls]
+                    if new_extracted_courses:
+                        self.course_pages.extend(new_extracted_courses)
+                        logger.info(f"  → Added {len(new_extracted_courses)} newly discovered course pages")
+                    
+                    # Add course-relevant links
+                    self.course_relevant_links.extend(classified_extracted.get('course_relevant', []))
+                    logger.info(f"  → Added {len(classified_extracted.get('course_relevant', []))} course-relevant links")
+                
+                new_course_pages = verified_course_pages
+            
+            if new_course_pages:
+                self.course_pages.extend(new_course_pages)
+                logger.info(f"Added {len(new_course_pages)} new course pages (filtered {len(classified.get('course_pages', [])) - len(new_course_pages)} duplicates)")
+            
             self.course_relevant_links.extend(classified['course_relevant'])
             self.irrelevant_links.extend(classified['irrelevant'])
             
@@ -588,12 +697,26 @@ class IntelligentScraper:
         import json
         import os
         
+        # Deduplicate course_pages by URL (keep first occurrence with full context)
+        seen_urls = set()
+        unique_course_pages = []
+        for link in self.course_pages:
+            url = link['url']
+            if url not in seen_urls:
+                seen_urls.add(url)
+                unique_course_pages.append(link)
+        
+        # Log deduplication if any duplicates were found
+        duplicates_removed = len(self.course_pages) - len(unique_course_pages)
+        if duplicates_removed > 0:
+            logger.info(f"Removed {duplicates_removed} duplicate course pages during save")
+        
         results = {
             'base_url': self.base_url,
             'visited_urls': list(self.visited_urls),
             'all_extracted_links': self.all_extracted_links,
             'external_links': self.external_links,
-            'course_pages': self.course_pages,
+            'course_pages': unique_course_pages,  # Use deduplicated list
             'course_relevant_links': self.course_relevant_links,
             'back_links': self.back_links,
             'irrelevant_links': self.irrelevant_links,
@@ -603,7 +726,7 @@ class IntelligentScraper:
                 'total_links_extracted': len(self.all_extracted_links),
                 'external_links': len(self.external_links),
                 'same_domain_links': len(self.all_extracted_links) - len(self.external_links),
-                'course_pages': len(self.course_pages),
+                'course_pages': len(unique_course_pages),  # Use deduplicated count
                 'course_relevant': len(self.course_relevant_links),
                 'back_links': len(self.back_links),
                 'irrelevant': len(self.irrelevant_links),

@@ -106,6 +106,8 @@ def main():
                        help='Output file path for results')
     parser.add_argument('--save-interval', type=int, default=200,
                        help='Save results every N links processed (default: 200)')
+    parser.add_argument('--verify-content', action='store_true',
+                       help='Enable content verification for course pages (uses additional API calls)')
     
     args = parser.parse_args()
     
@@ -119,6 +121,7 @@ def main():
     logger.info(f"URL: {args.url}")
     logger.info(f"Max Depth: {args.depth}")
     logger.info(f"AI Classification: {not args.no_ai}")
+    logger.info(f"Content Verification: {args.verify_content if not args.no_ai else False}")
     logger.info("="*60)
     
     try:
@@ -143,7 +146,8 @@ def main():
             base_url=args.url,
             use_ai_classification=not args.no_ai,
             save_interval=args.save_interval,
-            output_file=args.output
+            output_file=args.output,
+            verify_course_content=args.verify_content if not args.no_ai else False
         )
         
         logger.info(f"Periodic save enabled: every {args.save_interval} links")

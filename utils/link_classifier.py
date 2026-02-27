@@ -5,6 +5,7 @@ Uses NVIDIA API for AI inference with multiple API key rotation.
 """
 
 import os
+import sys
 import json
 import logging
 import requests
@@ -12,6 +13,23 @@ from typing import Dict, List, Optional
 from urllib.parse import urlparse
 from dotenv import load_dotenv
 from .api_key_manager import get_key_manager, APIKeyManager
+
+# Add setup to path for config import
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'setup'))
+from setup.config import (
+    LINK_CLASSIFICATION_MODEL,
+    LINK_CLASSIFICATION_TEMPERATURE,
+    LINK_CLASSIFICATION_MAX_TOKENS,
+    LINK_CLASSIFICATION_TOP_P,
+    CONTENT_VERIFICATION_MODEL,
+    CONTENT_VERIFICATION_TEMPERATURE,
+    CONTENT_VERIFICATION_MAX_TOKENS,
+    CONTENT_VERIFICATION_TOP_P,
+    BATCH_SIZE,
+    NVIDIA_API_ENDPOINT,
+    CLASSIFICATION_CACHE_FILE,
+    MAX_CONTENT_LENGTH
+)
 
 # Load environment variables
 load_dotenv()
@@ -25,19 +43,19 @@ class LinkClassifier:
     Uses NVIDIA API with Qwen model and API key rotation for higher rate limits.
     """
     
-    def __init__(self, model: str = "qwen/qwen3.5-397b-a17b", use_key_rotation: bool = True, cache_file: str = "data/link_classification_cache.json"):
+    def __init__(self, model: str = None, use_key_rotation: bool = True, cache_file: str = None):
         """
         Initialize the link classifier with NVIDIA API.
         
         Args:
-            model: NVIDIA model to use for classification (default: qwen/qwen3.5-397b-a17b)
+            model: NVIDIA model to use for classification (default: from config.LINK_CLASSIFICATION_MODEL)
             use_key_rotation: Use API key manager for rotation (default: True)
-            cache_file: Path to cache file for storing processed links (default: data/link_classification_cache.json)
+            cache_file: Path to cache file for storing processed links (default: from config.CLASSIFICATION_CACHE_FILE)
         """
-        self.model = model
-        self.invoke_url = "https://integrate.api.nvidia.com/v1/chat/completions"
+        self.model = model or LINK_CLASSIFICATION_MODEL
+        self.invoke_url = NVIDIA_API_ENDPOINT
         self.use_key_rotation = use_key_rotation
-        self.cache_file = cache_file
+        self.cache_file = cache_file or CLASSIFICATION_CACHE_FILE
         
         # Initialize classification cache
         self.classification_cache: Dict[str, Dict] = {}
@@ -202,9 +220,9 @@ Found on page: {context_url or 'N/A'}"""
                     {"role": "system", "content": self.system_prompt},
                     {"role": "user", "content": user_message}
                 ],
-                "max_tokens": 512,
-                "temperature": 0.20,
-                "top_p": 0.70,
+                "max_tokens": LINK_CLASSIFICATION_MAX_TOKENS,
+                "temperature": LINK_CLASSIFICATION_TEMPERATURE,
+                "top_p": LINK_CLASSIFICATION_TOP_P,
                 "stream": False
             }
             
@@ -375,9 +393,9 @@ Links to classify:
                         {"role": "system", "content": self.system_prompt},
                         {"role": "user", "content": batch_message}
                     ],
-                    "max_tokens": 2048,  # Increased for batch responses
-                    "temperature": 0.20,
-                    "top_p": 0.70,
+                    "max_tokens": LINK_CLASSIFICATION_MAX_TOKENS * 4,  # Increased for batch responses
+                    "temperature": LINK_CLASSIFICATION_TEMPERATURE,
+                    "top_p": LINK_CLASSIFICATION_TOP_P,
                     "stream": False
                 }
                 
@@ -649,7 +667,7 @@ Links to classify:
         return False
     
     def filter_links(self, links: List[Dict], context_url: str = None, 
-                    use_heuristics: bool = True, batch_size: int = 10) -> Dict[str, List[Dict]]:
+                    use_heuristics: bool = True, batch_size: int = None) -> Dict[str, List[Dict]]:
         """
         Filter links into categories: back_links, course_pages, course_relevant, and irrelevant.
         Uses batch processing for efficient AI classification.
@@ -658,11 +676,30 @@ Links to classify:
             links: List of link dictionaries
             context_url: The page where links were found
             use_heuristics: Use quick heuristics before AI classification
-            batch_size: Number of links to process per AI request
+            batch_size: Number of links to process per AI request (default: from config.BATCH_SIZE)
         
         Returns:
             Dictionary with categorized links
         """
+        # Use batch size from config if not specified
+        if batch_size is None:
+            batch_size = BATCH_SIZE
+        
+        # Deduplicate links by URL before processing (keep first occurrence with context)
+        seen_urls = set()
+        unique_links = []
+        duplicates_found = 0
+        for link_info in links:
+            url = link_info.get('url')
+            if url not in seen_urls:
+                seen_urls.add(url)
+                unique_links.append(link_info)
+            else:
+                duplicates_found += 1
+        
+        if duplicates_found > 0:
+            logger.info(f"Removed {duplicates_found} duplicate URLs before classification (from {len(links)} to {len(unique_links)})")
+        
         back_links = []
         course_pages = []
         course_relevant = []
@@ -671,7 +708,7 @@ Links to classify:
         # Separate links that can be filtered by heuristics
         needs_ai_classification = []
         
-        for link_info in links:
+        for link_info in unique_links:
             url = link_info.get('url')
             text = link_info.get('text', '')
             
@@ -707,7 +744,8 @@ Links to classify:
             'course_relevant': course_relevant,
             'irrelevant': irrelevant,
             'stats': {
-                'total': len(links),
+                'total': len(unique_links),  # Use deduplicated count
+                'duplicates_removed': duplicates_found,
                 'back_links': len(back_links),
                 'course_pages': len(course_pages),
                 'course_relevant': len(course_relevant),
@@ -760,3 +798,238 @@ Links to classify:
         """Manually save cache to file"""
         self._save_cache()
         logger.info(f"Cache saved to {self.cache_file}")
+    
+    def _load_content_analysis_prompt(self) -> str:
+        """Load content analysis prompt from prompts/content_analysis.txt"""
+        prompt_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "prompts", "content_analysis.txt")
+        try:
+            with open(prompt_path, 'r', encoding='utf-8') as f:
+                return f.read().strip()
+        except FileNotFoundError:
+            logger.warning(f"Content analysis prompt file not found at {prompt_path}. Using default.")
+            return """You are a content analyzer. Determine if webpage content is a course page and whether it contains links to other course pages.
+Respond with JSON only: {"is_course_page": bool, "confidence": float, "course_code": str, "course_name": str, "semester": str, "reasoning": str, "has_other_course_links": bool}"""
+    
+    def _fetch_page_content(self, url: str, timeout: int = 10) -> Optional[str]:
+        """
+        Fetch the HTML content of a webpage.
+        
+        Args:
+            url: URL to fetch
+            timeout: Request timeout in seconds
+        
+        Returns:
+            HTML content as string or None if failed
+        """
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            }
+            response = requests.get(url, headers=headers, timeout=timeout)
+            response.raise_for_status()
+            return response.text
+        except Exception as e:
+            logger.error(f"Failed to fetch content from {url}: {str(e)}")
+            return None
+    
+    def _extract_text_from_html(self, html_content: str, max_length: int = None) -> str:
+        """
+        Extract meaningful text from HTML content for AI analysis.
+        
+        Args:
+            html_content: Raw HTML content
+            max_length: Maximum length of extracted text (default: from config.MAX_CONTENT_LENGTH)
+        
+        Returns:
+            Cleaned text content
+        """
+        # Use max length from config if not specified
+        if max_length is None:
+            max_length = MAX_CONTENT_LENGTH
+        
+        try:
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(html_content, 'html.parser')
+            
+            # Remove script and style elements
+            for script in soup(["script", "style", "nav", "footer", "header"]):
+                script.decompose()
+            
+            # Get text
+            text = soup.get_text()
+            
+            # Clean up whitespace
+            lines = (line.strip() for line in text.splitlines())
+            chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
+            text = ' '.join(chunk for chunk in chunks if chunk)
+            
+            # Truncate if too long
+            if len(text) > max_length:
+                text = text[:max_length] + "..."
+            
+            return text
+        except Exception as e:
+            logger.error(f"Failed to extract text from HTML: {str(e)}")
+            return html_content[:max_length]
+    
+    def _extract_links_from_html_bs4(self, html_content: str, base_url: str) -> list:
+        """
+        Extract all hyperlinks from raw HTML using BeautifulSoup.
+        No AI involved — pure DOM parsing.
+
+        Args:
+            html_content: Raw HTML string
+            base_url: Base URL used to resolve relative links
+
+        Returns:
+            List of dicts with 'url' and 'text' keys
+        """
+        from bs4 import BeautifulSoup
+        from urllib.parse import urljoin, urlparse
+
+        try:
+            soup = BeautifulSoup(html_content, 'html.parser')
+            links = []
+            seen = set()
+
+            for a_tag in soup.find_all('a', href=True):
+                href = a_tag['href'].strip()
+                if not href or href.startswith('#') or href.startswith('javascript:') or href.startswith('mailto:'):
+                    continue
+
+                full_url = urljoin(base_url, href)
+
+                # Only keep http/https links
+                parsed = urlparse(full_url)
+                if parsed.scheme not in ('http', 'https'):
+                    continue
+
+                # Skip file links
+                if self.is_file_link(full_url):
+                    continue
+
+                if full_url in seen:
+                    continue
+                seen.add(full_url)
+
+                links.append({'url': full_url, 'text': a_tag.get_text(strip=True)})
+
+            logger.info(f"BS4 extracted {len(links)} links from {base_url}")
+            return links
+        except Exception as e:
+            logger.error(f"BS4 link extraction failed for {base_url}: {str(e)}")
+            return []
+
+    def verify_course_page_content(self, url: str, content_model: str = None) -> Optional[Dict]:
+        """
+        Verify if a URL's actual content is a course page and extract course links.
+        Uses a different model optimized for content analysis.
+        
+        Args:
+            url: URL to verify
+            content_model: NVIDIA model for content analysis (default: from config.CONTENT_VERIFICATION_MODEL)
+        
+        Returns:
+            Dictionary with verification results and extracted course links, or None if failed
+        """
+        # Use content model from config if not specified
+        if content_model is None:
+            content_model = CONTENT_VERIFICATION_MODEL
+        
+        logger.info(f"Verifying course page content: {url}")
+        
+        # Fetch page content
+        html_content = self._fetch_page_content(url)
+        if not html_content:
+            logger.error(f"Could not fetch content from {url}")
+            return None
+        
+        # Extract text from HTML
+        text_content = self._extract_text_from_html(html_content)
+        logger.info(f"Extracted {len(text_content)} characters from {url}")
+        
+        # Load content analysis prompt
+        content_prompt = self._load_content_analysis_prompt()
+        
+        # Prepare user message with content snippet
+        user_message = f"""Analyze this webpage content and determine if it's a course page.
+
+URL: {url}
+
+Content (first 8000 chars):
+{text_content}
+
+Respond with JSON only."""
+        
+        # Make API call with content analysis model
+        try:
+            # Get API key
+            if self.use_key_rotation:
+                api_key = self.key_manager.get_key()
+            else:
+                api_key = self.api_key
+            
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json"
+            }
+            
+            payload = {
+                "model": content_model,
+                "messages": [
+                    {"role": "system", "content": content_prompt},
+                    {"role": "user", "content": user_message}
+                ],
+                "temperature": CONTENT_VERIFICATION_TEMPERATURE,
+                "max_tokens": CONTENT_VERIFICATION_MAX_TOKENS,
+                "top_p": CONTENT_VERIFICATION_TOP_P
+            }
+            
+            response = requests.post(self.invoke_url, headers=headers, json=payload)
+            response.raise_for_status()
+            
+            # Record successful API call
+            if self.use_key_rotation:
+                self.key_manager.record_success(api_key)
+            
+            # Parse response
+            result = response.json()
+            content = result['choices'][0]['message']['content'].strip()
+            
+            # Extract JSON from response
+            try:
+                # Try to find JSON in response
+                if '```json' in content:
+                    json_str = content.split('```json')[1].split('```')[0].strip()
+                elif '```' in content:
+                    json_str = content.split('```')[1].split('```')[0].strip()
+                else:
+                    json_str = content
+                
+                verification_result = json.loads(json_str)
+                logger.info(f"Content verification: is_course_page={verification_result.get('is_course_page')}, "
+                          f"confidence={verification_result.get('confidence')}, "
+                          f"has_other_course_links={verification_result.get('has_other_course_links')}")
+
+                # Use BeautifulSoup to extract links if AI detected course links are present
+                if verification_result.get('has_other_course_links'):
+                    extracted_links = self._extract_links_from_html_bs4(html_content, url)
+                    verification_result['course_links_found'] = extracted_links
+                    logger.info(f"BS4 extracted {len(extracted_links)} candidate links from {url}")
+                else:
+                    verification_result['course_links_found'] = []
+
+                return verification_result
+                
+            except json.JSONDecodeError as e:
+                logger.error(f"Failed to parse JSON response: {content[:200]}")
+                return None
+                
+        except requests.exceptions.RequestException as e:
+            logger.error(f"API request failed for content verification: {str(e)}")
+            if self.use_key_rotation:
+                self.key_manager.record_failure(api_key, str(e))
+            return None
+        except Exception as e:
+            logger.error(f"Unexpected error in content verification: {str(e)}")
+            return None

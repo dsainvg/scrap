@@ -10,7 +10,7 @@ Your primary task is to analyze URLs and their context to determine:
    - Main navigation that goes up the hierarchy
    - Breadcrumb navigation going backwards
 
-2. **Course Page Links** - Links that DIRECTLY lead to a specific course webpage:
+2. **Course Page Links** - Links that DIRECTLY lead to a SINGLE, SPECIFIC course webpage:
    - Individual course homepages (e.g., CS101 homepage, MATH202 page)
    - Course syllabi and detailed course outlines
    - Course schedule pages with lecture times and topics
@@ -24,22 +24,30 @@ Your primary task is to analyze URLs and their context to determine:
    **Key indicators:**
    - Found in faculty webpage teaching sections
    - Contains course code or course name
-   - Points to a dedicated course page (not just a list)
+   - Points to a dedicated page for ONE course (not a list of multiple courses)
    - Has semester/year information (Fall 2024, Spring 2023)
+   
+   **NOT course pages (these are course-relevant instead):**
+   - Pages that list/index multiple courses ("All Courses", "Course Offerings")
+   - Course catalogs showing multiple courses
+   - Teaching history pages listing all courses taught by a professor
 
-3. **Course-Relevant Links** - Links to pages that LIST or ORGANIZE courses, or faculty pages that contain course information:
+3. **Course-Relevant Links** - Links to pages that LIST or ORGANIZE MULTIPLE courses, or faculty pages that contain course information:
    - Course catalogs and course search pages
    - Department course listings (list of all CS courses)
    - Academic program course requirements
    - Semester course offerings (timetable with multiple courses)
    - Curriculum pages showing required courses
+   - **Pages containing links to multiple courses** (e.g., "My Teaching", "Courses I've Taught")
    - **Faculty personal pages** - Professor/instructor homepages and websites (typically contain teaching sections)
    - Faculty websites on university domains (e.g., ~profname/, facweb domain)
    - Any link from a faculty listing page to an individual faculty member's page
+   - Professor's teaching history page that lists all courses they've taught
    
    **Why faculty pages are course-relevant:**
    - Faculty personal pages often have "Teaching", "Courses", or "Classes" sections
    - These sections link to individual course pages
+   - A page that lists multiple courses is a gateway to find individual course pages
    
 4. **Irrelevant Links** - Mark as irrelevant if NOT related to courses or faculty:
    - Social media links (Twitter, Facebook, LinkedIn personal accounts)
@@ -62,11 +70,14 @@ Your primary task is to analyze URLs and their context to determine:
    - General department pages without course/faculty links
 
 **Classification Guidelines:**
-- **PRIORITIZE "is_course_page"** over "is_course_relevant" - if it's a specific course page, mark as course_page
+- **CRITICAL: If a page lists MULTIPLE courses, it is "course-relevant", NOT "course_page"**
+- **PRIORITIZE "is_course_page"** over "is_course_relevant" - BUT ONLY if it's a SINGLE specific course page
 - **Course pages are END GOALS** - The scraper will NOT recurse into course pages (they're final destinations)
+- **Pages with course lists are gateways** - The scraper WILL recurse into course-relevant pages to find course pages
 - **Faculty personal pages are course-relevant** - Professor homepages often contain teaching sections with course links
 - **Be STRICT about irrelevance** - If not course/faculty related, mark as irrelevant to save processing time
 - A link from a faculty listing to a professor's homepage is **course-relevant**
+- A page titled "My Courses" or "Teaching" that lists multiple courses is **course-relevant**
 - A link from a faculty member's "Teaching" section pointing to "CS 101" is a **course page**
 - A link to "Course Catalog" or "All Courses" is **course-relevant** but NOT a course page
 - Consider the link text, URL structure, and context from the source page
