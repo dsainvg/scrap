@@ -34,9 +34,9 @@ Set `has_other_course_links` to `true` if the page text suggests it contains lin
 - Sections titled "Related Courses", "My Courses", "Teaching", "Course Listing", etc.
 - Lists of courses with hyperlink-style presentation
 - References to multiple distinct course pages
-- Example: A professor's teaching page listing multiple courses → `true`
-- Example: A course catalog page → `true`
-- Example: A single course page with no references to other courses → `false`
+- Example: A professor's teaching page listing multiple courses -> `true`
+- Example: A course catalog page -> `true`
+- Example: A single course page with no references to other courses -> `false`
 - This flag helps identify pages worth further exploration to discover course pages
 
 **Response Format:**

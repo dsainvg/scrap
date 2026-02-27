@@ -14,7 +14,7 @@ Rules applied by extract_links_from_html():
   6.  Keep only http / https final URLs.
   7.  Skip static file links (images, PDFs, archives, media, CSS/JS, etc.)
       but KEEP web-page extensions (.html, .htm, .php, .asp, .aspx, .jsp, .do).
-  8.  Deduplicate — scheme-normalised (http→https) + trailing-slash stripped.
+  8.  Deduplicate — scheme-normalised (http->https) + trailing-slash stripped.
 """
 
 import re

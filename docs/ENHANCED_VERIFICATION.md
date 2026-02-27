@@ -23,9 +23,9 @@ A new boolean flag that indicates whether a page contains links to other course 
 - Enables smarter reclassification decisions
 
 **Examples:**
-- Professor's teaching page listing courses → `has_other_course_links: true`
-- Course catalog or index → `has_other_course_links: true`  
-- Single course page with no other course links → `has_other_course_links: false`
+- Professor's teaching page listing courses -> `has_other_course_links: true`
+- Course catalog or index -> `has_other_course_links: true`  
+- Single course page with no other course links -> `has_other_course_links: false`
 
 ### 2. Automatic Reclassification
 
@@ -37,9 +37,9 @@ IF page is NOT a course page
   AND has_other_course_links is true
   AND course_links_found is not empty
 THEN
-  → Reclassify as "course_relevant"
-  → Add to scraping queue for further exploration
-  → Extract links for batch classification
+  -> Reclassify as "course_relevant"
+  -> Add to scraping queue for further exploration
+  -> Extract links for batch classification
 ```
 
 **Benefits:**
@@ -72,7 +72,7 @@ Extracted links from verified pages are sent for batch classification.
 
 ### Stage 1: Initial Classification
 ```
-Link → AI Classification → Categorized as "course_page"
+Link -> AI Classification -> Categorized as "course_page"
 ```
 
 ### Stage 2: Content Verification (if enabled)
@@ -96,10 +96,10 @@ Returns:
 is_course_page = true
 has_other_course_links = true
   ↓
-✓ Keep as course_page
-→ Extract course_links_found
-→ Batch classify extracted links
-→ Add new discoveries to results
+OK Keep as course_page
+-> Extract course_links_found
+-> Batch classify extracted links
+-> Add new discoveries to results
 ```
 
 #### Scenario B: Not a Course Page, But Has Course Links
@@ -108,11 +108,11 @@ is_course_page = false
 has_other_course_links = true
 course_links_found = [...]
   ↓
-↻ Reclassify as "course_relevant"
-→ Add to scraping queue
-→ Extract course_links_found
-→ Batch classify extracted links
-→ Scraper will recurse into this page
+[ ~ ] Reclassify as "course_relevant"
+-> Add to scraping queue
+-> Extract course_links_found
+-> Batch classify extracted links
+-> Scraper will recurse into this page
 ```
 
 #### Scenario C: Not a Course Page, No Links
@@ -120,9 +120,9 @@ course_links_found = [...]
 is_course_page = false
 has_other_course_links = false
   ↓
-✗ Verification failed
-→ Marked as failed verification
-→ Not added to results
+[!!] Verification failed
+-> Marked as failed verification
+-> Not added to results
 ```
 
 ---
@@ -206,10 +206,10 @@ Automatic rate limiting is included:
 ```
 
 **What Happens:**
-1. ↻ Reclassified as "course_relevant"
-2. → Added to scraping queue
-3. → 3 links extracted and batch classified
-4. ✓ New course pages discovered
+1. [ ~ ] Reclassified as "course_relevant"
+2. -> Added to scraping queue
+3. -> 3 links extracted and batch classified
+4. OK New course pages discovered
 
 ### Example 2: Verified Course Page with Related Courses
 
@@ -232,10 +232,10 @@ Automatic rate limiting is included:
 ```
 
 **What Happens:**
-1. ✓ Confirmed as course_page
-2. → Added to results
-3. → 2 links extracted and batch classified
-4. ✓ Related courses discovered
+1. OK Confirmed as course_page
+2. -> Added to results
+3. -> 2 links extracted and batch classified
+4. OK Related courses discovered
 
 ### Example 3: Isolated Course Page
 
@@ -255,10 +255,10 @@ Automatic rate limiting is included:
 ```
 
 **What Happens:**
-1. ✓ Confirmed as course_page
-2. → Added to results
-3. → No additional links to process
-4. ✓ Single course captured
+1. OK Confirmed as course_page
+2. -> Added to results
+3. -> No additional links to process
+4. OK Single course captured
 
 ---
 
@@ -295,10 +295,10 @@ python tests/test_enhanced_verification.py
 ```
 
 This test demonstrates:
-- ✓ has_other_course_links detection
-- ✓ Link extraction from verified pages
-- ✓ Reclassification logic
-- ✓ Batch classification workflow
+- OK has_other_course_links detection
+- OK Link extraction from verified pages
+- OK Reclassification logic
+- OK Batch classification workflow
 
 ### Test Content Verification
 
@@ -320,26 +320,26 @@ python main.py --verify-content --depth 2
 
 ```
 Verifying 5 course pages with content analysis
-✓ Verified course page: https://example.edu/courses/CS101.html
-  → Found 3 additional course links in verified page
+OK Verified course page: https://example.edu/courses/CS101.html
+  -> Found 3 additional course links in verified page
 Batch classifying 3 extracted course links
-  → Added 2 newly discovered course pages
-  → Added 1 course-relevant links
+  -> Added 2 newly discovered course pages
+  -> Added 1 course-relevant links
 ```
 
 ### Reclassification Example
 
 ```
-↻ Reclassifying as course_relevant (has 5 course links): https://example.edu/~prof/teaching.html
+[ ~ ] Reclassifying as course_relevant (has 5 course links): https://example.edu/~prof/teaching.html
 Moving 1 pages from course_pages to course_relevant
 Batch classifying 5 extracted course links
-  → Added 4 newly discovered course pages
+  -> Added 4 newly discovered course pages
 ```
 
 ### Failed Verification
 
 ```
-✗ Content verification failed (not a course page): https://example.edu/about.html (confidence: 0.15)
+[!!] Content verification failed (not a course page): https://example.edu/about.html (confidence: 0.15)
 ```
 
 ---
@@ -397,7 +397,7 @@ Batch classifying 5 extracted course links
                 ▼                   ▼
     ┌─────────────────┐    [No Verification]
     │  Verify Content │         │
-    │  (if enabled)   │         └──→ Add to results
+    │  (if enabled)   │         └──-> Add to results
     └─────────────────┘
                 │
                 ▼
@@ -415,7 +415,7 @@ Batch classifying 5 extracted course links
   confidence>0.5   has_links=true
         │                │
         ▼                ▼
-   ✓ Verified      ↻ Reclassify
+   OK Verified      [ ~ ] Reclassify
    Course Page     as course_relevant
         │                │
         └────────┬───────┘
@@ -427,7 +427,7 @@ Batch classifying 5 extracted course links
             │         │
            Yes        No
             │         │
-            ▼         └──→ Done
+            ▼         └──-> Done
    Extract & Batch
    Classify Links
             │

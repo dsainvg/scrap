@@ -203,7 +203,7 @@ Content verification uses a specialized prompt:
 Verifying course page content: https://cse.iitkgp.ac.in/~pawang/courses/ALGO21.html
 Extracted 6543 characters from https://cse.iitkgp.ac.in/~pawang/courses/ALGO21.html
 
-✓ Verification Complete:
+OK Verification Complete:
   Is Course Page: True
   Confidence: 0.95
   Course Code: CS41003

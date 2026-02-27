@@ -34,8 +34,18 @@ CONTENT_VERIFICATION_MAX_TOKENS = 1024
 CONTENT_VERIFICATION_TOP_P = 0.95
 
 # Batch Processing
-# Number of links to process per API request for link classification
-BATCH_SIZE = 10
+# Number of links to process per API request for link classification.
+# Smaller = faster per-batch response, fewer timeout failures. Keep ≤ 5 for large models.
+BATCH_SIZE = 7
+
+# Timeout in seconds for a single batch API call.
+BATCH_API_TIMEOUT = 120
+
+# Delay in seconds between consecutive batch API calls (avoids rate-limiting).
+BATCH_INTER_DELAY = 2
+
+# Maximum number of retries for a timed-out batch, with exponential backoff.
+BATCH_MAX_RETRIES = 3
 
 # API Configuration
 NVIDIA_API_ENDPOINT = "https://integrate.api.nvidia.com/v1/chat/completions"
@@ -56,9 +66,19 @@ if MAX_SCRAPING_DEPTH < 1:
     raise ValueError("MAX_SCRAPING_DEPTH must be at least 1")
 if BATCH_SIZE < 1:
     raise ValueError("BATCH_SIZE must be at least 1")
+if BATCH_API_TIMEOUT < 10:
+    raise ValueError("BATCH_API_TIMEOUT must be at least 10 seconds")
+if BATCH_INTER_DELAY < 0:
+    raise ValueError("BATCH_INTER_DELAY cannot be negative")
+if BATCH_MAX_RETRIES < 0:
+    raise ValueError("BATCH_MAX_RETRIES cannot be negative")
 if LINK_CLASSIFICATION_TEMPERATURE < 0 or LINK_CLASSIFICATION_TEMPERATURE > 2:
     raise ValueError("LINK_CLASSIFICATION_TEMPERATURE must be between 0 and 2")
+if LINK_CLASSIFICATION_MAX_TOKENS < 64:
+    raise ValueError("LINK_CLASSIFICATION_MAX_TOKENS must be at least 64")
 if CONTENT_VERIFICATION_TEMPERATURE < 0 or CONTENT_VERIFICATION_TEMPERATURE > 2:
     raise ValueError("CONTENT_VERIFICATION_TEMPERATURE must be between 0 and 2")
+if CONTENT_VERIFICATION_MAX_TOKENS < 64:
+    raise ValueError("CONTENT_VERIFICATION_MAX_TOKENS must be at least 64")
 if MAX_CONTENT_LENGTH < 1000:
     raise ValueError("MAX_CONTENT_LENGTH must be at least 1000 characters")

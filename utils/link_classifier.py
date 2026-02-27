@@ -7,6 +7,7 @@ Uses NVIDIA API for AI inference with multiple API key rotation.
 import os
 import sys
 import json
+import time
 import logging
 import requests
 from typing import Dict, List, Optional
@@ -27,6 +28,9 @@ from setup.config import (
     CONTENT_VERIFICATION_MAX_TOKENS,
     CONTENT_VERIFICATION_TOP_P,
     BATCH_SIZE,
+    BATCH_API_TIMEOUT,
+    BATCH_INTER_DELAY,
+    BATCH_MAX_RETRIES,
     NVIDIA_API_ENDPOINT,
     CLASSIFICATION_CACHE_FILE,
     MAX_CONTENT_LENGTH
@@ -146,7 +150,7 @@ Prioritize course pages (individual courses) over course-relevant (course lists)
         cache_key = self._get_cache_key(url)
         if cache_key in self.classification_cache:
             self.cache_hits += 1
-            logger.info(f"✓ Cache HIT for: {url}")
+            logger.info(f"[OK] Cache HIT for: {url}")
             return self.classification_cache[cache_key]
         else:
             self.cache_misses += 1
@@ -335,7 +339,7 @@ Found on page: {context_url or 'N/A'}"""
         
         if not uncached_links:
             # All links were cached - no API calls needed!
-            logger.info("✓ All links found in cache! No AI calls needed.")
+            logger.info("[OK] All links found in cache! No AI calls needed.")
             return [result for _, result in sorted(all_results)]
         
         # STEP 2: Process only uncached links in batches
@@ -346,6 +350,10 @@ Found on page: {context_url or 'N/A'}"""
             batch = uncached_links[i:i+batch_size]
             batch_indices = uncached_indices[i:i+batch_size]
             logger.info(f"Processing batch {i//batch_size + 1}: {len(batch)} uncached links")
+
+            # Delay between batches to avoid rate-limiting (skip before first batch)
+            if i > 0:
+                time.sleep(BATCH_INTER_DELAY)
             
             # Prepare batch message for AI
             batch_message = f"""Analyze these {len(batch)} links and classify each one:
@@ -384,31 +392,44 @@ Links to classify:
                 else:
                     api_key = self.api_key
                 
-                # Call API
-                headers = {
-                    "Authorization": f"Bearer {api_key}",
-                    "Accept": "application/json"
-                }
-                
-                payload = {
-                    "model": self.model,
-                    "messages": [
-                        {"role": "system", "content": self.system_prompt},
-                        {"role": "user", "content": batch_message}
-                    ],
-                    "max_tokens": LINK_CLASSIFICATION_MAX_TOKENS * 4,  # Increased for batch responses
-                    "temperature": LINK_CLASSIFICATION_TEMPERATURE,
-                    "top_p": LINK_CLASSIFICATION_TOP_P,
-                    "stream": False
-                }
-                
-                response = requests.post(
-                    self.invoke_url,
-                    headers=headers,
-                    json=payload,
-                    timeout=60  # Increased timeout for batch
-                )
-                response.raise_for_status()
+                # Call API with retry-on-timeout
+                last_exc = None
+                response = None
+                for attempt in range(1, BATCH_MAX_RETRIES + 2):  # +2: 1 initial + BATCH_MAX_RETRIES retries
+                    try:
+                        response = requests.post(
+                            self.invoke_url,
+                            headers={
+                                "Authorization": f"Bearer {api_key}",
+                                "Accept": "application/json"
+                            },
+                            json={
+                                "model": self.model,
+                                "messages": [
+                                    {"role": "system", "content": self.system_prompt},
+                                    {"role": "user", "content": batch_message}
+                                ],
+                                "max_tokens": LINK_CLASSIFICATION_MAX_TOKENS * 4,
+                                "temperature": LINK_CLASSIFICATION_TEMPERATURE,
+                                "top_p": LINK_CLASSIFICATION_TOP_P,
+                                "stream": False
+                            },
+                            timeout=BATCH_API_TIMEOUT
+                        )
+                        response.raise_for_status()
+                        break  # success
+                    except requests.exceptions.Timeout as exc:
+                        last_exc = exc
+                        backoff = attempt * 5
+                        logger.warning(f"Batch {i//batch_size + 1} timed out (attempt {attempt}/{BATCH_MAX_RETRIES + 1}). "
+                                       f"Retrying in {backoff}s...")
+                        time.sleep(backoff)
+                    except requests.exceptions.RequestException as exc:
+                        last_exc = exc
+                        break  # non-timeout errors are not retried
+
+                if response is None:
+                    raise last_exc
                 
                 # Report success
                 if self.use_key_rotation and self.key_manager:
@@ -434,7 +455,7 @@ Links to classify:
                     
                     all_results.append((orig_idx, result))
                 
-                logger.info(f"✓ Saved batch results to cache file")
+                logger.info(f"[OK] Saved batch results to cache file")
                 
                 # Log individual results from batch
                 for idx, (link_info, result) in enumerate(zip(batch, batch_results), 1):

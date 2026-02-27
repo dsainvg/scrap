@@ -24,7 +24,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/main.log'),
+        logging.FileHandler('logs/main.log', encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -47,11 +47,11 @@ def print_results_summary(results: dict):
     print(f"Base URL: {results['base_url']}")
     print(f"Total Pages Visited: {results['stats']['total_visited']}")
     print(f"\nLink Classification:")
-    print(f"  📄 Course Pages: {results['stats']['course_pages']}")
-    print(f"  ✓ Course-Relevant Links: {results['stats']['course_relevant']}")
-    print(f"  📎 File Links: {results['stats'].get('file_links', 0)}")
-    print(f"  ← Back Links (filtered): {results['stats']['back_links']}")
-    print(f"  ✗ Irrelevant Links: {results['stats']['irrelevant']}")
+    print(f"  [course] Course Pages: {results['stats']['course_pages']}")
+    print(f"  [+] Course-Relevant Links: {results['stats']['course_relevant']}")
+    print(f"  [file] File Links: {results['stats'].get('file_links', 0)}")
+    print(f"  [back] Back Links (filtered): {results['stats']['back_links']}")
+    print(f"  [-] Irrelevant Links: {results['stats']['irrelevant']}")
     print("\n" + "="*60)
     
     # Show some course pages (highest priority)

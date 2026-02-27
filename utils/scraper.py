@@ -17,7 +17,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/scraper.log'),
+        logging.FileHandler('logs/scraper.log', encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -100,7 +100,7 @@ class IntelligentScraper:
             soup = BeautifulSoup(response.text, 'html.parser')
 
             # Unified anchor extraction — all eight rules applied by link_extractor:
-            # empty/fragment/bad-scheme filtering, relative→absolute resolution,
+            # empty/fragment/bad-scheme filtering, relative->absolute resolution,
             # http/https-only, file-link detection, deduplication, HTML context.
             links = extract_links_from_html(response.text, url, include_context=True, _soup=soup)
 
@@ -303,7 +303,7 @@ class IntelligentScraper:
         """Save current scraping results to file (periodic checkpoint)"""
         try:
             self.save_results(output_file=self.output_file)
-            logger.info(f"✓ Progress saved to {self.output_file}")
+            logger.info(f"[OK] Progress saved to {self.output_file}")
         except Exception as e:
             logger.error(f"Failed to save periodic checkpoint: {str(e)}")
     
@@ -418,11 +418,11 @@ class IntelligentScraper:
                         # If content analysis confirms it's a course page, keep it
                         if verification.get('is_course_page') and verification.get('confidence', 0) > 0.5:
                             verified_course_pages.append(course_link)
-                            logger.info(f"✓ Verified course page: {course_link['url']}")
+                            logger.info(f"[OK] Verified course page: {course_link['url']}")
                             
                             # Process extracted course links if present
                             if extracted_links and has_other_links:
-                                logger.info(f"  → Found {len(extracted_links)} additional course links in verified page")
+                                logger.info(f"  -> Found {len(extracted_links)} additional course links in verified page")
                                 for extracted_link in extracted_links:
                                     links_to_classify.append({
                                         'url': extracted_link['url'],
@@ -433,7 +433,7 @@ class IntelligentScraper:
                             # Page is NOT a course page
                             # If it has course links, reclassify as course_relevant
                             if has_other_links and extracted_links:
-                                logger.info(f"↻ Reclassifying as course_relevant (has {len(extracted_links)} course links): {course_link['url']}")
+                                logger.info(f"[~] Reclassifying as course_relevant (has {len(extracted_links)} course links): {course_link['url']}")
                                 pages_to_reclassify.append(course_link)
                                 
                                 # Add extracted links for classification
@@ -444,7 +444,7 @@ class IntelligentScraper:
                                         'source': course_link['url'],
                                     })
                             else:
-                                logger.warning(f"✗ Content verification failed (not a course page): {course_link['url']} "
+                                logger.warning(f"[!!] Content verification failed (not a course page): {course_link['url']} "
                                              f"(confidence: {verification.get('confidence', 0):.2f})")
                     else:
                         # If verification API failed, still keep the link but mark it
@@ -474,11 +474,11 @@ class IntelligentScraper:
                                             if link['url'] not in existing_urls]
                     if new_extracted_courses:
                         self.course_pages.extend(new_extracted_courses)
-                        logger.info(f"  → Added {len(new_extracted_courses)} newly discovered course pages")
+                        logger.info(f"  -> Added {len(new_extracted_courses)} newly discovered course pages")
                     
                     # Add course-relevant links
                     self.course_relevant_links.extend(classified_extracted.get('course_relevant', []))
-                    logger.info(f"  → Added {len(classified_extracted.get('course_relevant', []))} course-relevant links")
+                    logger.info(f"  -> Added {len(classified_extracted.get('course_relevant', []))} course-relevant links")
                 
                 new_course_pages = verified_course_pages
             
