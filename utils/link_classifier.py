@@ -709,14 +709,27 @@ Links to classify:
         if batch_size is None:
             batch_size = BATCH_SIZE
         
-        # Deduplicate links by URL before processing (keep first occurrence with context)
-        seen_urls = set()
-        unique_links = []
+        # Deduplicate links by normalized URL before processing (keep first occurrence with context)
+        seen_urls: set = set()
+        unique_links: List[Dict] = []
         duplicates_found = 0
+
         for link_info in links:
-            url = link_info.get('url')
-            if url not in seen_urls:
-                seen_urls.add(url)
+            url = link_info.get('url', '')
+            # Normalize: lowercase scheme+host, strip trailing slash, drop fragment
+            try:
+                from urllib.parse import urlparse, urlunparse
+                _p = urlparse(url.strip())
+                norm = urlunparse((
+                    _p.scheme.lower(), _p.netloc.lower(),
+                    _p.path.rstrip('/') or '/',
+                    _p.params, _p.query, ''
+                ))
+            except Exception:
+                norm = url.strip().lower()
+
+            if norm not in seen_urls:
+                seen_urls.add(norm)
                 unique_links.append(link_info)
             else:
                 duplicates_found += 1

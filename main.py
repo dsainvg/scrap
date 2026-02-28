@@ -50,6 +50,7 @@ def print_results_summary(results: dict):
     print(f"  [course] Course Pages: {results['stats']['course_pages']}")
     print(f"  [+] Course-Relevant Links: {results['stats']['course_relevant']}")
     print(f"  [file] File Links: {results['stats'].get('file_links', 0)}")
+    print(f"  [WARN] Inaccessible Links (403/timeout): {results['stats'].get('inaccessible', 0)}")
     print(f"  [back] Back Links (filtered): {results['stats']['back_links']}")
     print(f"  [-] Irrelevant Links: {results['stats']['irrelevant']}")
     print("\n" + "="*60)
@@ -88,6 +89,17 @@ def print_results_summary(results: dict):
         
         if len(results['file_links']) > 5:
             print(f"   ... and {len(results['file_links']) - 5} more files")
+    
+    # Show inaccessible links
+    if results.get('inaccessible_links'):
+        print("\nInaccessible Links (forbidden / no-response):")
+        for i, link in enumerate(results['inaccessible_links'][:5], 1):
+            print(f"{i}. {link['url']}")
+            if 'error' in link:
+                print(f"   Error: {link['error'][:100]}")
+
+        if len(results['inaccessible_links']) > 5:
+            print(f"   ... and {len(results['inaccessible_links']) - 5} more")
     
     print("\n" + "="*60 + "\n")
 

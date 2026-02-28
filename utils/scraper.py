@@ -55,7 +55,21 @@ class IntelligentScraper:
         self.back_links: List[Dict] = []
         self.irrelevant_links: List[Dict] = []
         self.file_links: List[Dict] = []  # File resources (PDFs, images, etc.)
-        
+        self.inaccessible_links: List[Dict] = []  # Forbidden / no-response URLs
+
+        # ── Global URL dedup sets (prevent same URL appearing > once in any list) ──
+        self._seen_all_extracted: Set[str] = set()
+        self._seen_external: Set[str] = set()
+        self._seen_course_pages: Set[str] = set()
+        self._seen_course_relevant: Set[str] = set()
+        self._seen_back_links: Set[str] = set()
+        self._seen_irrelevant: Set[str] = set()
+        self._seen_file_links: Set[str] = set()
+        self._seen_inaccessible: Set[str] = set()
+
+        # Tracks fetch errors per URL (populated by extract_all_links)
+        self._fetch_errors: Dict[str, str] = {}
+
         # Periodic save settings
         self.save_interval = save_interval
         self.output_file = output_file
@@ -289,16 +303,44 @@ class IntelligentScraper:
             return links
             
         except requests.RequestException as e:
-            logger.error(f"Error fetching {url}: {str(e)}")
+            error_msg = str(e)
+            self._fetch_errors[url] = error_msg  # ← record for inaccessible detection
+            logger.error(f"Error fetching {url}: {error_msg}")
             return []
         except Exception as e:
-            logger.error(f"Unexpected error extracting links from {url}: {str(e)}")
+            error_msg = str(e)
+            self._fetch_errors[url] = error_msg  # ← record for inaccessible detection
+            logger.error(f"Unexpected error extracting links from {url}: {error_msg}")
             return []
     
     def is_same_domain(self, url: str) -> bool:
         """Check if URL belongs to the same domain"""
         return urlparse(url).netloc == self.domain
-    
+
+    @staticmethod
+    def _normalize_url(url: str) -> str:
+        """
+        Normalize URL for consistent deduplication.
+        - Lowercases scheme and host
+        - Strips trailing slash from path
+        - Removes URL fragment
+        - Strips surrounding whitespace
+        """
+        try:
+            from urllib.parse import urlparse, urlunparse
+            p = urlparse(url.strip())
+            path = p.path.rstrip('/') or '/'
+            return urlunparse((
+                p.scheme.lower(),
+                p.netloc.lower(),
+                path,
+                p.params,
+                p.query,
+                ''  # drop fragment
+            ))
+        except Exception:
+            return url.strip().lower()
+
     def _periodic_save(self):
         """Save current scraping results to file (periodic checkpoint)"""
         try:
@@ -341,11 +383,29 @@ class IntelligentScraper:
         extracted_links = self.extract_all_links(url)
         
         if not extracted_links:
+            # If page failed to load (forbidden, timeout, etc.) track as inaccessible
+            if url in self._fetch_errors:
+                norm = self._normalize_url(url)
+                if norm not in self._seen_inaccessible:
+                    self._seen_inaccessible.add(norm)
+                    self.inaccessible_links.append({
+                        'url': url,
+                        'error': self._fetch_errors[url],
+                        'classification': 'inaccessible',
+                    })
+                    logger.warning(
+                        f"[INACCESSIBLE] {url} — stored in inaccessible_links | "
+                        f"Error: {self._fetch_errors[url]}"
+                    )
             return
         
-        # Store ALL extracted links
-        self.all_extracted_links.extend(extracted_links)
-        
+        # Store ALL extracted links (deduplicated globally)
+        for _lnk in extracted_links:
+            _norm = self._normalize_url(_lnk['url'])
+            if _norm not in self._seen_all_extracted:
+                self._seen_all_extracted.add(_norm)
+                self.all_extracted_links.append(_lnk)
+
         # Separate same-domain and external links
         same_domain_links = []
         external_links = []
@@ -356,8 +416,12 @@ class IntelligentScraper:
             else:
                 external_links.append(link)
         
-        # Store external links
-        self.external_links.extend(external_links)
+        # Store external links (deduplicated)
+        for _lnk in external_links:
+            _norm = self._normalize_url(_lnk['url'])
+            if _norm not in self._seen_external:
+                self._seen_external.add(_norm)
+                self.external_links.append(_lnk)
         
         logger.info(f"Found {len(same_domain_links)} same-domain links, {len(external_links)} external links")
         
@@ -376,21 +440,32 @@ class IntelligentScraper:
         
         if file_links:
             logger.info(f"Found {len(file_links)} file links (images, PDFs, etc.) - storing with parent context")
-            # Store file links separately with parent folder information
-            self.file_links.extend(file_links)
+            # Store file links (deduplicated)
+            for _lnk in file_links:
+                _norm = self._normalize_url(_lnk['url'])
+                if _norm not in self._seen_file_links:
+                    self._seen_file_links.add(_norm)
+                    self.file_links.append(_lnk)
         
         # Classify links using AI (only web page links, not files)
         if self.use_ai and self.classifier and web_page_links:
             logger.info(f"Classifying {len(web_page_links)} web page links with AI")
             classified = self.classifier.filter_links(web_page_links, context_url=url)
             
-            # Store classified links (with deduplication)
-            self.back_links.extend(classified['back_links'])
+            # Store classified links (with strong deduplication)
+            for _bl in classified['back_links']:
+                _norm = self._normalize_url(_bl['url'])
+                if _norm not in self._seen_back_links:
+                    self._seen_back_links.add(_norm)
+                    self.back_links.append(_bl)
             
-            # Deduplicate course_pages before adding
-            existing_course_urls = {link['url'] for link in self.course_pages}
-            new_course_pages = [link for link in classified.get('course_pages', []) 
-                               if link['url'] not in existing_course_urls]
+            # Deduplicate course_pages before adding (use normalized URL set)
+            new_course_pages = []
+            for link in classified.get('course_pages', []):
+                _norm = self._normalize_url(link['url'])
+                if _norm not in self._seen_course_pages:
+                    self._seen_course_pages.add(_norm)
+                    new_course_pages.append(link)
             
             # Optional: Verify course pages with content analysis
             if new_course_pages and self.verify_content and self.classifier:
@@ -447,47 +522,82 @@ class IntelligentScraper:
                                 logger.warning(f"[!!] Content verification failed (not a course page): {course_link['url']} "
                                              f"(confidence: {verification.get('confidence', 0):.2f})")
                     else:
-                        # If verification API failed, still keep the link but mark it
-                        course_link['content_verified'] = False
-                        verified_course_pages.append(course_link)
-                        logger.warning(f"Could not verify content (API error): {course_link['url']}")
+                        # Verification API returned None → page likely inaccessible (403/timeout)
+                        _norm = self._normalize_url(course_link['url'])
+                        if _norm not in self._seen_inaccessible:
+                            self._seen_inaccessible.add(_norm)
+                            course_link['classification'] = 'inaccessible'
+                            course_link['error'] = 'Content verification failed – page may be inaccessible (forbidden or no response)'
+                            self.inaccessible_links.append(course_link)
+                            logger.warning(
+                                f"[INACCESSIBLE] Content fetch failed – moved to inaccessible_links: "
+                                f"{course_link['url']}"
+                            )
+                        # Do NOT add to verified_course_pages
                     
                     time.sleep(0.5)  # Rate limiting for content verification
                 
-                # Move reclassified pages to course_relevant
+                # Move reclassified pages to course_relevant (deduped)
                 if pages_to_reclassify:
                     logger.info(f"Moving {len(pages_to_reclassify)} pages from course_pages to course_relevant")
                     for page in pages_to_reclassify:
                         page['classification'] = 'course_relevant'
                         page['reclassified_from'] = 'course_page'
                         page['reason'] = 'has_other_course_links'
-                        self.course_relevant_links.append(page)
+                        _norm = self._normalize_url(page['url'])
+                        if _norm not in self._seen_course_relevant:
+                            self._seen_course_relevant.add(_norm)
+                            self.course_relevant_links.append(page)
                 
                 # Batch classify extracted links if any
                 if links_to_classify:
                     logger.info(f"Batch classifying {len(links_to_classify)} extracted course links")
                     classified_extracted = self.classifier.filter_links(links_to_classify, context_url=url)
                     
-                    # Add newly classified course pages (avoid duplicates)
-                    existing_urls = {link['url'] for link in self.course_pages}
-                    new_extracted_courses = [link for link in classified_extracted.get('course_pages', [])
-                                            if link['url'] not in existing_urls]
-                    if new_extracted_courses:
-                        self.course_pages.extend(new_extracted_courses)
-                        logger.info(f"  -> Added {len(new_extracted_courses)} newly discovered course pages")
+                    # Add newly classified course pages (normalized dedup)
+                    new_extracted_count = 0
+                    for link in classified_extracted.get('course_pages', []):
+                        _norm = self._normalize_url(link['url'])
+                        if _norm not in self._seen_course_pages:
+                            self._seen_course_pages.add(_norm)
+                            self.course_pages.append(link)
+                            new_extracted_count += 1
+                    if new_extracted_count:
+                        logger.info(f"  -> Added {new_extracted_count} newly discovered course pages")
                     
-                    # Add course-relevant links
-                    self.course_relevant_links.extend(classified_extracted.get('course_relevant', []))
-                    logger.info(f"  -> Added {len(classified_extracted.get('course_relevant', []))} course-relevant links")
+                    # Add course-relevant links (deduped)
+                    new_cr_count = 0
+                    for link in classified_extracted.get('course_relevant', []):
+                        _norm = self._normalize_url(link['url'])
+                        if _norm not in self._seen_course_relevant:
+                            self._seen_course_relevant.add(_norm)
+                            self.course_relevant_links.append(link)
+                            new_cr_count += 1
+                    logger.info(f"  -> Added {new_cr_count} course-relevant links")
                 
                 new_course_pages = verified_course_pages
             
             if new_course_pages:
                 self.course_pages.extend(new_course_pages)
-                logger.info(f"Added {len(new_course_pages)} new course pages (filtered {len(classified.get('course_pages', [])) - len(new_course_pages)} duplicates)")
-            
-            self.course_relevant_links.extend(classified['course_relevant'])
-            self.irrelevant_links.extend(classified['irrelevant'])
+                total_classified = len(classified.get('course_pages', []))
+                logger.info(
+                    f"Added {len(new_course_pages)} new course pages "
+                    f"(skipped {total_classified - len(new_course_pages)} duplicates)"
+                )
+
+            # Add course-relevant links (deduplicated)
+            for _lnk in classified['course_relevant']:
+                _norm = self._normalize_url(_lnk['url'])
+                if _norm not in self._seen_course_relevant:
+                    self._seen_course_relevant.add(_norm)
+                    self.course_relevant_links.append(_lnk)
+
+            # Add irrelevant links (deduplicated)
+            for _lnk in classified['irrelevant']:
+                _norm = self._normalize_url(_lnk['url'])
+                if _norm not in self._seen_irrelevant:
+                    self._seen_irrelevant.add(_norm)
+                    self.irrelevant_links.append(_lnk)
             
             # Update link processing counter
             links_classified = len(web_page_links)
@@ -538,7 +648,11 @@ class IntelligentScraper:
         elif web_page_links:
             # Without AI, just collect web page links (files are already in irrelevant)
             logger.info(f"AI classification disabled. Collected {len(web_page_links)} web page links")
-            self.course_relevant_links.extend(web_page_links)
+            for _lnk in web_page_links:
+                _norm = self._normalize_url(_lnk['url'])
+                if _norm not in self._seen_course_relevant:
+                    self._seen_course_relevant.add(_norm)
+                    self.course_relevant_links.append(_lnk)
     
     def scrape(self, max_depth: int = 2) -> Dict:
         """
@@ -552,6 +666,9 @@ class IntelligentScraper:
         """
         logger.info(f"Starting intelligent scrape from: {self.base_url}")
         logger.info(f"Max depth: {max_depth}, AI classification: {self.use_ai}")
+        if self.use_ai:
+            verify_status = 'ENABLED' if self.verify_content else 'DISABLED (pass --verify-content to enable 2nd AI call)'
+            logger.info(f"Content verification (2nd AI function): {verify_status}")
         
         # Start scraping from base URL
         self.scrape_page(self.base_url, max_depth=max_depth)
@@ -567,6 +684,7 @@ class IntelligentScraper:
             'back_links': self.back_links,
             'irrelevant_links': self.irrelevant_links,
             'file_links': self.file_links,
+            'inaccessible_links': self.inaccessible_links,
             'stats': {
                 'total_visited': len(self.visited_urls),
                 'total_links_extracted': len(self.all_extracted_links),
@@ -576,7 +694,8 @@ class IntelligentScraper:
                 'course_relevant': len(self.course_relevant_links),
                 'back_links': len(self.back_links),
                 'irrelevant': len(self.irrelevant_links),
-                'file_links': len(self.file_links)
+                'file_links': len(self.file_links),
+                'inaccessible': len(self.inaccessible_links),
             }
         }
         
@@ -595,41 +714,60 @@ class IntelligentScraper:
         """Save scraping results to a JSON file"""
         import json
         import os
-        
-        # Deduplicate course_pages by URL (keep first occurrence with full context)
-        seen_urls = set()
-        unique_course_pages = []
-        for link in self.course_pages:
-            url = link['url']
-            if url not in seen_urls:
-                seen_urls.add(url)
-                unique_course_pages.append(link)
-        
-        # Log deduplication if any duplicates were found
-        duplicates_removed = len(self.course_pages) - len(unique_course_pages)
-        if duplicates_removed > 0:
-            logger.info(f"Removed {duplicates_removed} duplicate course pages during save")
-        
+
+        # Lists are already deduplicated during scraping via _seen_* sets.
+        # Do a final URL-based dedup pass as a safety net.
+        def _final_dedup(lst: list) -> list:
+            seen, out = set(), []
+            for item in lst:
+                norm = self._normalize_url(item.get('url', ''))
+                if norm not in seen:
+                    seen.add(norm)
+                    out.append(item)
+            return out
+
+        unique_course_pages = _final_dedup(self.course_pages)
+        unique_course_relevant = _final_dedup(self.course_relevant_links)
+        unique_back_links = _final_dedup(self.back_links)
+        unique_irrelevant = _final_dedup(self.irrelevant_links)
+        unique_file_links = _final_dedup(self.file_links)
+        unique_inaccessible = _final_dedup(self.inaccessible_links)
+        unique_external = _final_dedup(self.external_links)
+
+        for name, orig, deduped in [
+            ('course_pages', self.course_pages, unique_course_pages),
+            ('course_relevant', self.course_relevant_links, unique_course_relevant),
+            ('back_links', self.back_links, unique_back_links),
+            ('irrelevant', self.irrelevant_links, unique_irrelevant),
+            ('file_links', self.file_links, unique_file_links),
+            ('inaccessible', self.inaccessible_links, unique_inaccessible),
+        ]:
+            removed = len(orig) - len(deduped)
+            if removed > 0:
+                logger.info(f"[DEDUP] Removed {removed} duplicate(s) from {name} during final save")
+
         results = {
             'base_url': self.base_url,
             'visited_urls': list(self.visited_urls),
-            'all_extracted_links': self.all_extracted_links,
-            'external_links': self.external_links,
-            'course_pages': unique_course_pages,  # Use deduplicated list
-            'course_relevant_links': self.course_relevant_links,
-            'back_links': self.back_links,
-            'irrelevant_links': self.irrelevant_links,
-            'file_links': self.file_links,
+            'all_extracted_links': _final_dedup(self.all_extracted_links),
+            'external_links': unique_external,
+            'course_pages': unique_course_pages,
+            'course_relevant_links': unique_course_relevant,
+            'back_links': unique_back_links,
+            'irrelevant_links': unique_irrelevant,
+            'file_links': unique_file_links,
+            'inaccessible_links': unique_inaccessible,
             'stats': {
                 'total_visited': len(self.visited_urls),
                 'total_links_extracted': len(self.all_extracted_links),
-                'external_links': len(self.external_links),
-                'same_domain_links': len(self.all_extracted_links) - len(self.external_links),
-                'course_pages': len(unique_course_pages),  # Use deduplicated count
-                'course_relevant': len(self.course_relevant_links),
-                'back_links': len(self.back_links),
-                'irrelevant': len(self.irrelevant_links),
-                'file_links': len(self.file_links)
+                'external_links': len(unique_external),
+                'same_domain_links': len(self.all_extracted_links) - len(unique_external),
+                'course_pages': len(unique_course_pages),
+                'course_relevant': len(unique_course_relevant),
+                'back_links': len(unique_back_links),
+                'irrelevant': len(unique_irrelevant),
+                'file_links': len(unique_file_links),
+                'inaccessible': len(unique_inaccessible),
             }
         }
         

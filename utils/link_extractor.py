@@ -201,11 +201,21 @@ def extract_links_from_html(
         if parsed.scheme not in ('http', 'https'):
             continue
 
+        # Strip fragment from final URL – fragments point to an anchor within the
+        # same page (e.g. dynamic.html and dynamic.html#1ddyn are the same resource).
+        if parsed.fragment:
+            from urllib.parse import urlunparse
+            full_url = urlunparse((
+                parsed.scheme, parsed.netloc, parsed.path,
+                parsed.params, parsed.query, ''
+            ))
+            parsed = urlparse(full_url)  # re-parse without fragment
+
         # Rule 7 – skip static file links.
         if is_file_link(full_url):
             continue
 
-        # Rule 8 – deduplicate using scheme-normalised URL.
+        # Rule 8 – deduplicate using scheme-normalised URL (fragment already stripped).
         normalised = parsed._replace(scheme='https').geturl().rstrip('/')
         if normalised in seen:
             continue
