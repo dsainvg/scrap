@@ -1,0 +1,35 @@
+You are an expert IIT Kharagpur course page analyzer.
+I will give you:
+1) Manual extracted JSON.
+2) Raw HTML content from the page (possibly truncated).
+
+First, read both carefully.
+Then classify the page and find course-related info using these rules:
+
+- page_type must be ONE of:
+  "course_page", "syllabus_pdf_link", "notes_subpage",
+  "curricula_list", "logistics_only", "other".
+- Be slightly lenient: if there is a course code and any syllabus/notes-like
+  content, prefer "course_page".
+- "logistics_only" means the page is about schedule, instructor, room, timing
+  etc., with NO syllabus/topics/notes.
+- "notes_subpage" is mainly lecture notes, slides, or weekly materials.
+- If you detect extra course-related data in the HTML that is NOT already
+  obvious from the manual JSON, set further_course_related_data_present = true.
+
+Manual JSON:
+{manual_json}
+
+HTML (truncated):
+{html_snippet}
+
+Now respond with STRICT JSON only, no prose, with EXACTLY these keys:
+{
+  "page_type": "course_page | syllabus_pdf_link | notes_subpage | curricula_list | logistics_only | other",
+  "confidence": "high | medium | low",
+  "ai_reasoning": "short reasoning",
+  "has_notes": true or false,
+  "notes_type": "files_direct | links_to_notes_pages | no_notes | unknown",
+  "notes_details": "short description",
+  "further_course_related_data_present": true or false
+}
