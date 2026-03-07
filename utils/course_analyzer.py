@@ -77,6 +77,8 @@ CSV_COLUMNS: list[str] = [
     "notes_type",
     "notes_details",
     "further_course_related_data_present",
+    "has_syllabus_or_logistics",
+    "is_useful",
     "conflict_flag",
     "recheck_needed",
     "all_files_json",
@@ -111,10 +113,16 @@ _AI_FALLBACK: dict = {
     "ai_page_type": "other",
     "ai_confidence": "low",
     "ai_reasoning": "AI call failed; defaulted to 'other'.",
+    "course_code": None,
+    "course_title": None,
+    "semester": None,
+    "year": None,
     "has_notes": False,
     "notes_type": "unknown",
     "notes_details": "",
     "further_course_related_data_present": False,
+    "has_syllabus_or_logistics": False,
+    "is_useful": False,
 }
 
 
@@ -503,12 +511,18 @@ def ai_enrich_page(extracted: dict, html: str) -> dict:
             "ai_page_type":                     str(parsed.get("page_type", "other")),
             "ai_confidence":                    str(parsed.get("confidence", "low")),
             "ai_reasoning":                     str(parsed.get("ai_reasoning", "")),
+            "course_code":                      parsed.get("course_code") or None,
+            "course_title":                     parsed.get("course_title") or None,
+            "semester":                         parsed.get("semester") or None,
+            "year":                             parsed.get("year") or None,
             "has_notes":                        bool(parsed.get("has_notes", False)),
             "notes_type":                       str(parsed.get("notes_type", "unknown")),
             "notes_details":                    str(parsed.get("notes_details", "")),
             "further_course_related_data_present": bool(
                 parsed.get("further_course_related_data_present", False)
             ),
+            "has_syllabus_or_logistics":         bool(parsed.get("has_syllabus_or_logistics", False)),
+            "is_useful":                        bool(parsed.get("is_useful", False)),
         }
         logger.info(
             f"[AI] {extracted['url']} -> page_type={ai_result['ai_page_type']} "
@@ -564,10 +578,10 @@ def merge_results(
 
     return {
         "url":                              extracted["url"],
-        "course_code":                      extracted.get("course_code"),
-        "course_title":                     extracted.get("course_title"),
-        "semester":                         extracted.get("semester"),
-        "year":                             extracted.get("year"),
+        "course_code":                      ai_data.get("course_code"),
+        "course_title":                     ai_data.get("course_title"),
+        "semester":                         ai_data.get("semester"),
+        "year":                             ai_data.get("year"),
         "all_files":                        extracted.get("all_files", []),
         "all_internal_links":               extracted.get("all_internal_links", []),
         "manual_page_type":                 manual_page_type,
@@ -578,6 +592,8 @@ def merge_results(
         "notes_type":                       ai_data["notes_type"],
         "notes_details":                    ai_data["notes_details"],
         "further_course_related_data_present": ai_data["further_course_related_data_present"],
+        "has_syllabus_or_logistics":         ai_data["has_syllabus_or_logistics"],
+        "is_useful":                        ai_data["is_useful"],
         "conflict_flag":                    conflict_flag,
         "recheck_needed":                   recheck_needed,
     }

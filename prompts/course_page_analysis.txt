@@ -1,6 +1,6 @@
 You are an expert IIT Kharagpur course page analyzer.
 I will give you:
-1) Manual extracted JSON.
+1) Manual extracted JSON (use only as a hint — do NOT copy its course_code, course_title, semester, or year directly).
 2) Raw HTML content from the page (possibly truncated).
 
 First, read both carefully.
@@ -16,6 +16,53 @@ Then classify the page and find course-related info using these rules:
 - "notes_subpage" is mainly lecture notes, slides, or weekly materials.
 - If you detect extra course-related data in the HTML that is NOT already
   obvious from the manual JSON, set further_course_related_data_present = true.
+- Set has_syllabus_or_logistics = true if the page contains ANY of: syllabus,
+  course outline, topic list, grading policy, marking scheme, schedule,
+  logistics, prerequisites, or office hours — even if there are NO notes,
+  papers, or tutorials present.
+- Set is_useful = true ONLY if the page has actual learning materials: lecture
+  notes, slides, tutorial sheets, assignments, papers, or navigable links to
+  any of those. A page with ONLY syllabus / grading policy / logistics and
+  nothing else must have is_useful = false.
+
+**STRICT RULES for course_code, course_title, semester, year — read from the HTML, not from the manual JSON:**
+
+course_code:
+- Prefer the IIT KGP post-2015 format: exactly two uppercase letters followed
+  by exactly five digits (e.g. CS10001, MA20101, EC60010). This takes highest priority.
+- If no post-2015 code is found, accept legacy formats: 2–4 uppercase letters
+  optionally followed by a hyphen or space, then 2–5 digits
+  (e.g. CS101, CSE301, MATH-202, CS 60050).
+- The code must appear in a context that clearly labels it as a course code:
+  next to a course name, inside a heading, labelled as "Course No.", in a
+  schedule table, or prominently repeated. Do NOT pick up room/building codes
+  (e.g. NR311, CS120) unless the surrounding context explicitly calls them a
+  course code.
+- If multiple candidate codes exist, choose the one repeated most often or the
+  one closest to a course title or heading.
+- Set to null if no valid code is found.
+
+course_title:
+- Extract the full canonical course name as it appears in the page
+  (e.g. "Programming and Data Structures", "Operating Systems").
+- Prefer text inside <h1> or <h2> tags, the HTML <title>, or a prominent
+  heading that co-occurs with the course code.
+- Do NOT return short abbreviations (e.g. "PDS", "OS") as the title unless
+  that is literally the only form present on the page.
+- Set to null if no course title can be reliably identified.
+
+semester:
+- Extract the semester label exactly as it appears. Accept forms like:
+  "Autumn 2024", "Spring 2023", "Fall 2022", "Monsoon 2021",
+  "Odd Semester 2024-25", "Even Semester 2025", "July-November 2024".
+- Do NOT invent or guess. Set to null if not explicitly present.
+
+year:
+- Extract a four-digit academic year or year range that applies to this course
+  instance: e.g. "2024", "2023-24", "2024-2025".
+- If semester already contains the year (e.g. "Autumn 2024"), you may repeat
+  it here for convenience.
+- Set to null if not explicitly present.
 
 Manual JSON:
 {manual_json}
@@ -28,8 +75,14 @@ Now respond with STRICT JSON only, no prose, with EXACTLY these keys:
   "page_type": "course_page | syllabus_pdf_link | notes_subpage | curricula_list | logistics_only | other",
   "confidence": "high | medium | low",
   "ai_reasoning": "short reasoning",
+  "course_code": "extracted code or null",
+  "course_title": "extracted title or null",
+  "semester": "extracted semester or null",
+  "year": "extracted year or null",
   "has_notes": true or false,
   "notes_type": "files_direct | links_to_notes_pages | no_notes | unknown",
   "notes_details": "short description",
-  "further_course_related_data_present": true or false
+  "further_course_related_data_present": true or false,
+  "has_syllabus_or_logistics": true or false,
+  "is_useful": true or false
 }

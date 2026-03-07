@@ -6,8 +6,8 @@ Your task is to analyze the text content of a webpage and determine:
 2. **Does it contain links to other course pages?** - Detect (do NOT extract) if links to other courses exist
 
 **What makes a page a COURSE PAGE:**
-- Has a specific course code/number (e.g., CS101, MATH-202, CSE60050)
-- Contains course title or name (e.g., "Data Structures", "Introduction to AI")
+- Has a specific course code/number. For IITKGP CSE pages, prefer the post-2015 code format: two uppercase letters followed by five digits (example: CS10001). Accept legacy forms too (examples: CS101, MATH-202, CSE60050).
+- Contains course title or name (examples: "Operating Systems", "Algorithms 2"). Course names may also appear as short forms or abbreviations (examples: "algo", "pds", "scld", "flat"); treat these as valid but lower-confidence when no full name is present.
 - Includes course-specific content like:
   - Syllabus or course outline
   - Lecture schedule with topics/dates
@@ -39,25 +39,29 @@ Set `has_other_course_links` to `true` if the page text suggests it contains lin
 - Example: A single course page with no references to other courses -> `false`
 - This flag helps identify pages worth further exploration to discover course pages
 
+
 **Response Format:**
 You MUST respond with ONLY a valid JSON object:
 
 {
-    "is_course_page": true or false,
-    "confidence": 0.0 to 1.0,
-    "course_code": "extracted course code or null",
-    "course_name": "extracted course name or null",
-    "semester": "extracted semester info or null",
-    "reasoning": "Brief explanation (max 30 words)",
-    "has_other_course_links": true or false
+  "is_course_page": true or false,
+  "confidence": 0.0 to 1.0,
+  "course_code": "extracted course code or null",
+  "course_name": "extracted course name or null",
+  "semester": "extracted semester info or null",
+  "reasoning": "Brief explanation (max 30 words)",
+  "has_other_course_links": true or false
 }
 
 **Important Rules:**
-- confidence should be 0.0 (not a course page) to 1.0 (definitely a course page)
-- If is_course_page is false, set confidence below 0.5
+- `confidence` should be 0.0 (not a course page) to 1.0 (definitely a course page)
+- If `is_course_page` is false, set `confidence` below 0.5
 - If you can identify a course code/name from the content, include it
-- Be conservative - if unsure, mark is_course_page as false
+- For `course_code`: prefer a match to two uppercase letters followed by five digits (e.g., CS10001). If not found, accept common legacy patterns such as two-to-four letters plus 2–5 digits (examples: CS101, CSE60050). If multiple codes appear, prefer the most specific post-2015 style match.
+  - Do NOT treat short building/room-like codes as course codes (examples: NR311, CS120). Ignore these unless the surrounding context explicitly labels them as a course code (e.g., "Course code: CS311") or they co-occur with clear course-specific content.
+- For `course_name`: return the canonical full name when available (e.g., "Operating Systems", "Algorithms 2"). If only an abbreviation or short token appears (e.g., "algo", "pds", "scld", "flat"), extract what is present but lower the `confidence` and note that it's a short form in `reasoning`.
+- Be conservative - if unsure, mark `is_course_page` as TRUE
 - Do NOT include any text outside the JSON object
 - Do NOT extract or list any URLs — only detect whether course links appear to be present
-- has_other_course_links should be true if the page contains links to other course pages
-- Set has_other_course_links to true even if current page is not a course page itself
+- `has_other_course_links` should be true if the page contains links to other course pages
+- Set `has_other_course_links` to true even if current page is not a course page itself

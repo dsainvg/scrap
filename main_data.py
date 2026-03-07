@@ -75,6 +75,12 @@ def main() -> None:
     # ── Summary ────────────────────────────────────────────────────────────
     recheck_count = sum(1 for r in rows if r.get("recheck_needed"))
     conflict_count = sum(1 for r in rows if r.get("conflict_flag"))
+    useful_count = sum(1 for r in rows if r.get("is_useful"))
+    not_useful_count = len(rows) - useful_count
+    syllabus_only_count = sum(
+        1 for r in rows
+        if not r.get("is_useful") and r.get("has_syllabus_or_logistics")
+    )
 
     print("\n" + "=" * 60)
     print("PIPELINE SUMMARY")
@@ -84,6 +90,9 @@ def main() -> None:
     print(f"Failed (no HTML)     : {len(failed)}")
     print(f"Conflicts flagged    : {conflict_count}")
     print(f"Recheck needed       : {recheck_count}")
+    print(f"Useful pages found   : {useful_count}")
+    print(f"Not-useful pages     : {not_useful_count}")
+    print(f"  ↳ Syllabus/logistics only (no materials): {syllabus_only_count}")
     print(f"Output written to    : {OUTPUT_CSV}")
     print("=" * 60)
 
