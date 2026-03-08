@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/SPL/Spring24/",
+      "course_code": "CS29206",
+      "course_title": "Systems Programming Laboratory",
+      "semester": "Spring 2024",
+      "year": "2024"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/SPL/Spring23/",
+      "course_code": "CS29206",
+      "course_title": "Systems Programming Laboratory",
+      "semester": "Spring 2023",
+      "year": "2023"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/SPL/Spring22/",
+      "course_code": "CS29206",
+      "course_title": "Systems Programming Laboratory",
+      "semester": "Spring 2022",
+      "year": "2022"
+    }
+  ]
+}

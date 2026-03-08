@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2020ParameterizedAlgo/paramAlgo.html",
+      "course_code": "CS60083",
+      "course_title": "Parameterized Algorithms",
+      "semester": null,
+      "year": "2020"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2022ParameterizedAlgo/paramAlgo.html",
+      "course_code": "CS60083",
+      "course_title": "Parameterized Algorithms",
+      "semester": null,
+      "year": "2020"
+    }
+  ]
+}

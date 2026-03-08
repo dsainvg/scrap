@@ -1,124 +1,126 @@
-# Quick Reference: AI Model Configuration
+# Quick Reference: Configuration (`setup/config.py`)
 
 ## File Location
-`setup/config.py` - Edit this file to configure AI models and parameters
+`setup/config.py` — edit this file to configure scraper and AI model settings.
+Environment variables (API keys only) go in `.env`.
 
 ---
 
-## Link Classification (Stage 1)
-Classifies URLs based on context
+## Scraper Settings
 
 ```python
-LINK_CLASSIFICATION_MODEL = "qwen/qwen3.5-397b-a17b"
-LINK_CLASSIFICATION_TEMPERATURE = 0.2     # 0.0 = deterministic, 2.0 = creative
-LINK_CLASSIFICATION_MAX_TOKENS = 512      # Response length limit
-LINK_CLASSIFICATION_TOP_P = 0.9           # Diversity (0.0-1.0)
-BATCH_SIZE = 10                           # Links per API call
+SCRAPER_TIMEOUT = 45       # HTTP request timeout (seconds)
+SCRAPER_DELAY   = 1        # Polite delay between page fetches (seconds)
+MAX_SCRAPING_DEPTH = 7     # Maximum recursion depth (Stage 1)
 ```
 
 ---
 
-## Content Verification (Stage 2)
-Verifies course pages by analyzing content (when `--verify-content` enabled)
+## Link Classification (Stage 1)
 
 ```python
-CONTENT_VERIFICATION_MODEL = "meta/llama-3.1-70b-instruct"
-CONTENT_VERIFICATION_TEMPERATURE = 0.1    # Low for factual extraction
-CONTENT_VERIFICATION_MAX_TOKENS = 1024    # Longer for detailed analysis
-CONTENT_VERIFICATION_TOP_P = 0.95         # Higher diversity
-MAX_CONTENT_LENGTH = 8000                 # Max chars to analyze
+LINK_CLASSIFICATION_MODEL       = "meta/llama-3.3-70b-instruct"
+LINK_CLASSIFICATION_TEMPERATURE = 0.1    # 0.0 = fully deterministic
+LINK_CLASSIFICATION_MAX_TOKENS  = 512
+LINK_CLASSIFICATION_TOP_P       = 0.9
+```
+
+---
+
+## Content Verification / Analysis (Stage 1 optional, Stage 2, Stage 3)
+
+```python
+CONTENT_VERIFICATION_MODEL       = "meta/llama-3.1-70b-instruct"
+CONTENT_VERIFICATION_TEMPERATURE = 0.1
+CONTENT_VERIFICATION_MAX_TOKENS  = 4096   # High to avoid truncated JSON
+CONTENT_VERIFICATION_TOP_P       = 0.7
+MAX_CONTENT_LENGTH               = 8000   # Max HTML chars sent to AI
+```
+
+---
+
+## Batch Processing (Stage 1)
+
+```python
+BATCH_SIZE       = 7     # Links per API call (keep ≤ 7 for large models)
+BATCH_API_TIMEOUT = 120  # Seconds before a batch call times out
+BATCH_INTER_DELAY = 2    # Seconds between consecutive batch calls
+BATCH_MAX_RETRIES = 3    # Retry count on timeout (exponential backoff)
+```
+
+---
+
+## API & Cache
+
+```python
+NVIDIA_API_ENDPOINT      = "https://integrate.api.nvidia.com/v1/chat/completions"
+CLASSIFICATION_CACHE_FILE = "data/link_classification_cache.json"
 ```
 
 ---
 
 ## Recommended Models
 
-| Speed | Model | Best For |
-|-------|-------|----------|
-| ⚡⚡⚡ | `meta/llama-3.1-8b-instruct` | Fast, simple tasks |
-| ⚡⚡ | `meta/llama-3.1-70b-instruct` | Balanced speed/quality |
-| ⚡ | `meta/llama-3.1-405b-instruct` | High accuracy |
-| ⚡ | `qwen/qwen3.5-397b-a17b` | Best reasoning |
+| Speed | Model | Use case |
+|---|---|---|
+| ⚡⚡⚡ | `meta/llama-3.1-8b-instruct` | Cost-optimized runs |
+| ⚡⚡ | `meta/llama-3.1-70b-instruct` | **Recommended default** |
+| ⚡ | `meta/llama-3.3-70b-instruct` | Better reasoning, slower |
+| ⚡ | `meta/llama-3.1-405b-instruct` | Highest accuracy |
 
 ---
 
 ## Quick Presets
 
-### Maximum Accuracy
+### Balanced (current default)
 ```python
-LINK_CLASSIFICATION_MODEL = "qwen/qwen3.5-397b-a17b"
+LINK_CLASSIFICATION_MODEL = "meta/llama-3.3-70b-instruct"
 LINK_CLASSIFICATION_TEMPERATURE = 0.1
-BATCH_SIZE = 5
-CONTENT_VERIFICATION_MODEL = "meta/llama-3.1-405b-instruct"
-CONTENT_VERIFICATION_TEMPERATURE = 0.05
-```
-
-### Balanced (Default)
-```python
-LINK_CLASSIFICATION_MODEL = "qwen/qwen3.5-397b-a17b"
-LINK_CLASSIFICATION_TEMPERATURE = 0.2
-BATCH_SIZE = 10
+BATCH_SIZE = 7
 CONTENT_VERIFICATION_MODEL = "meta/llama-3.1-70b-instruct"
-CONTENT_VERIFICATION_TEMPERATURE = 0.1
 ```
 
 ### Maximum Speed
 ```python
 LINK_CLASSIFICATION_MODEL = "meta/llama-3.1-70b-instruct"
-LINK_CLASSIFICATION_TEMPERATURE = 0.3
-BATCH_SIZE = 15
+LINK_CLASSIFICATION_TEMPERATURE = 0.2
+BATCH_SIZE = 10
 CONTENT_VERIFICATION_MODEL = "meta/llama-3.1-70b-instruct"
-CONTENT_VERIFICATION_TEMPERATURE = 0.2
+CONTENT_VERIFICATION_MAX_TOKENS = 2048
+```
+
+### Maximum Accuracy
+```python
+LINK_CLASSIFICATION_MODEL = "meta/llama-3.3-70b-instruct"
+LINK_CLASSIFICATION_TEMPERATURE = 0.1
+BATCH_SIZE = 5
+CONTENT_VERIFICATION_MODEL = "meta/llama-3.1-70b-instruct"
+CONTENT_VERIFICATION_MAX_TOKENS = 4096
+MAX_CONTENT_LENGTH = 12000
 ```
 
 ---
 
 ## Parameter Guide
 
-| Parameter | Range | Recommended | Effect |
-|-----------|-------|-------------|--------|
-| **Temperature** | 0.0 - 2.0 | 0.1 - 0.3 | Lower = more consistent |
-| **Max Tokens** | 100 - 4096 | 512 - 1024 | Higher = longer responses |
-| **Top P** | 0.0 - 1.0 | 0.9 - 0.95 | Higher = more diverse |
-| **Batch Size** | 1 - 50 | 10 - 15 | Higher = faster, less accurate |
-
----
-
-## How to Change
-
-1. Edit `setup/config.py`
-2. Modify values in "AI Model Configuration" section
-3. Save file
-4. Run: `python main.py`
-
-Changes take effect immediately!
-
----
-
-## Testing Changes
-
-```bash
-# Quick test
-python main.py --depth 1
-
-# Test content verification
-python tests/test_content_verification.py
-
-# Check logs
-tail -f logs/scraper.log
-```
+| Parameter | Range | Effect |
+|---|---|---|
+| Temperature | 0.0–2.0 | Lower = more consistent (use 0.1 for JSON tasks) |
+| Max Tokens | 64–4096 | Higher = longer responses; 4096 needed for page analysis |
+| Top P | 0.0–1.0 | Lower = more focused |
+| Batch Size | 1–20 | Higher = fewer API calls; lower = more accurate |
 
 ---
 
 ## Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
-| Low accuracy | ↓ Temperature (0.1), ↑ Model size |
-| Too slow | ↓ Model size, ↑ Batch size |
-| High costs | ↓ Max tokens, ↓ Content length |
-| Inconsistent | ↓ Temperature, ↓ Top P |
+| Problem | Fix |
+|---|---|
+| Timeout errors | ↑ `BATCH_API_TIMEOUT`, ↓ `MAX_CONTENT_LENGTH`, faster model |
+| Truncated JSON | ↑ `CONTENT_VERIFICATION_MAX_TOKENS` to 4096 |
+| Low accuracy | ↓ temperature (0.1), ↓ batch size, larger model |
+| Slow runs | Switch to `meta/llama-3.1-70b-instruct`, ↑ batch size |
 
 ---
 
-**Full Documentation**: See `docs/MODEL_CONFIGURATION.md`
+**Full docs**: `docs/MODEL_CONFIGURATION.md`

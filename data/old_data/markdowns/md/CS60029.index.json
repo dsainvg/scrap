@@ -1,0 +1,44 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2024RandomizedAlgoDesign/RAD2024.html",
+      "course_code": "CS60029",
+      "course_title": "Randomized Algorithm Design",
+      "semester": null,
+      "year": "2024"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2025RandomizedAlgoDesign/RAD2025.html",
+      "course_code": "CS60029",
+      "course_title": "Randomized Algorithm Design",
+      "semester": null,
+      "year": "2024"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2023RandomizedAlgoDesign/RAD2023.html",
+      "course_code": "CS60029",
+      "course_title": "Randomized Algorithm Design",
+      "semester": null,
+      "year": "2023"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2020RandomizedAlgoDesign/RAD2020.html",
+      "course_code": "CS60029",
+      "course_title": "Randomized Algorithm Design",
+      "semester": null,
+      "year": "2020"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2019RandomizedAlgoDesign/RAD2019.html",
+      "course_code": "CS60029",
+      "course_title": "Randomized Algorithm Design",
+      "semester": null,
+      "year": "2019"
+    }
+  ]
+}

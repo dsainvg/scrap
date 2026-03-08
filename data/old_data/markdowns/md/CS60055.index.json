@@ -1,0 +1,44 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~smisra/course/cn.html",
+      "course_code": "CS60055",
+      "course_title": "Ubiquitous Computing",
+      "semester": null,
+      "year": null
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~smisra/course/ubiq_comp.html",
+      "course_code": "CS60055",
+      "course_title": "Ubiquitous Computing",
+      "semester": null,
+      "year": null
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/UB2016.html",
+      "course_code": "CS60055",
+      "course_title": "Ubiquitous Computing",
+      "semester": "Autumn Semester 2016",
+      "year": "2016"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/UB2015.html",
+      "course_code": "CS60055",
+      "course_title": "Ubiquitous Computing",
+      "semester": "Autumn Semester 2015",
+      "year": "2015"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~smisra/course/cn_aut23.html",
+      "course_code": "CS60055",
+      "course_title": "Ubiquitous Computing",
+      "semester": null,
+      "year": null
+    }
+  ]
+}

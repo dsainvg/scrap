@@ -1,0 +1,36 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/CSL-I/Autumn08/",
+      "course_code": "CS69003",
+      "course_title": "Computer Systems Laboratory - I",
+      "semester": "Autumn 2008",
+      "year": "2008"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/CSL-I/Autumn07/",
+      "course_code": "CS69003",
+      "course_title": "Computer Systems Laboratory - I",
+      "semester": "Autumn",
+      "year": "2007"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/CSL-I/Autumn06/",
+      "course_code": "CS69003",
+      "course_title": "Computer Systems Laboratory - I",
+      "semester": "Autumn",
+      "year": "2006"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/CSL-I/Autumn03/",
+      "course_code": "CS69003",
+      "course_title": "Computer Systems Laboratory - I",
+      "semester": "Autumn 2003",
+      "year": "2003"
+    }
+  ]
+}

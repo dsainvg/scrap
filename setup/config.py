@@ -21,17 +21,21 @@ REQUEST_TIMEOUT = SCRAPER_TIMEOUT
 
 # Link Classification Model (Stage 1)
 # Used for analyzing URLs and context to classify links
-LINK_CLASSIFICATION_MODEL = "qwen/qwen3.5-397b-a17b"
-LINK_CLASSIFICATION_TEMPERATURE = 0.2
+LINK_CLASSIFICATION_MODEL = "meta/llama-3.3-70b-instruct"
+LINK_CLASSIFICATION_TEMPERATURE = 0.1
 LINK_CLASSIFICATION_MAX_TOKENS = 512
 LINK_CLASSIFICATION_TOP_P = 0.9
 
 # Content Verification Model (Stage 2)
 # Used for analyzing actual page content to verify course pages
+# 
+# RECOMMENDED: "meta/llama-3.1-70b-instruct" (faster, 0.7s avg response)
+# SLOWER:      "meta/llama-3.3-70b-instruct" (14s+ avg response, may timeout)
+# FASTEST:     "meta/llama-3.1-8b-instruct" (0.6s avg, less accurate for complex tasks)
 CONTENT_VERIFICATION_MODEL = "meta/llama-3.1-70b-instruct"
 CONTENT_VERIFICATION_TEMPERATURE = 0.1
-CONTENT_VERIFICATION_MAX_TOKENS = 1024
-CONTENT_VERIFICATION_TOP_P = 0.95
+CONTENT_VERIFICATION_MAX_TOKENS = 4096  # Increased from 2048 to avoid truncation
+CONTENT_VERIFICATION_TOP_P = 0.7
 
 # Batch Processing
 # Number of links to process per API request for link classification.

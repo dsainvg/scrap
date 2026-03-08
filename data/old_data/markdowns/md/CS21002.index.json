@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/SCLD/Spring16/",
+      "course_code": "CS21002",
+      "course_title": "Switching Circuits and Logic Design",
+      "semester": "Spring 2016",
+      "year": "2016"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/SCLD/Spring16/",
+      "course_code": "CS21002",
+      "course_title": "Switching Circuits and Logic Design",
+      "semester": "Spring 2016",
+      "year": "2016"
+    }
+  ]
+}

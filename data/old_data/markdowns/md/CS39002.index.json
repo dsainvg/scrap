@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/OSL/Spring14/",
+      "course_code": "CS39002",
+      "course_title": "Operating Systems Laboratory",
+      "semester": "Spring 2014",
+      "year": "2014"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/OSL/Spring13/",
+      "course_code": "CS39002",
+      "course_title": "Operating Systems Laboratory",
+      "semester": "Spring 2013",
+      "year": "2013"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/OSL/Spring12/",
+      "course_code": "CS39002",
+      "course_title": "Operating Systems Laboratory",
+      "semester": "Spring",
+      "year": "2012"
+    }
+  ]
+}

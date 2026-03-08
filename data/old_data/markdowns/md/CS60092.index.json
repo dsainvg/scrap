@@ -1,0 +1,44 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/IR20.html",
+      "course_code": "CS60092",
+      "course_title": "Information Retrieval",
+      "semester": "Spring Semester",
+      "year": "2019-20"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~animeshm/course_IR2019.html",
+      "course_code": "CS60092",
+      "course_title": "Information Retrieval",
+      "semester": "Spring Semester",
+      "year": "2018-19"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/IR18.html",
+      "course_code": "CS60092",
+      "course_title": "Information Retrieval",
+      "semester": "Spring Semester",
+      "year": "2017-18"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/IR17.html",
+      "course_code": "CS60092",
+      "course_title": "Information Retrieval",
+      "semester": "Spring Semester",
+      "year": "2016-17"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/IR16.html",
+      "course_code": "CS60092",
+      "course_title": "Information Retrieval",
+      "semester": "Spring Semester",
+      "year": "2015-16"
+    }
+  ]
+}

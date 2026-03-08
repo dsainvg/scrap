@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/PARALGO/Autumn18/",
+      "course_code": "CS60040",
+      "course_title": "Parallel and Distributed Algorithms",
+      "semester": "Autumn 2018",
+      "year": "2018"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/PARALGO/Autumn17/",
+      "course_code": "CS60040",
+      "course_title": "Parallel and Distributed Algorithms",
+      "semester": "Autumn 2017",
+      "year": "2017"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~debdeep/courses_iitkgp/PAlgo/index.htm",
+      "course_code": "CS60040",
+      "course_title": "Parallel and Distributed Algorithms",
+      "semester": null,
+      "year": null
+    }
+  ]
+}

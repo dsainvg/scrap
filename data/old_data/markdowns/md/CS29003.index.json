@@ -1,0 +1,68 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2024Algorithms1-Lab/algo1-lab-2024.html",
+      "course_code": "CS29003",
+      "course_title": "Algorithms Laboratory",
+      "semester": "Spring 2024",
+      "year": "2024"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2022Algorithms1-Lab/algo1-lab-2022.html",
+      "course_code": "CS29003",
+      "course_title": "Algorithms Laboratory",
+      "semester": "Spring 2022",
+      "year": "2022"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2021Algorithms1-Lab/algo1-lab-2021.html",
+      "course_code": "CS29003",
+      "course_title": "Algorithms Laboratory",
+      "semester": "Spring 2021",
+      "year": "2021"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/Algo1/Spring20/",
+      "course_code": "CS29003",
+      "course_title": "Algorithms Laboratory",
+      "semester": "Spring 2020",
+      "year": "2020"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/Algo1/Autumn17/",
+      "course_code": "CS29003",
+      "course_title": "Algorithms Laboratory",
+      "semester": "Autumn 2017",
+      "year": "2017"
+    },
+    {
+      "index": 6,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/Algo1/Autumn16/",
+      "course_code": "CS29003",
+      "course_title": "Algorithms Laboratory",
+      "semester": "Autumn 2016",
+      "year": "2016"
+    },
+    {
+      "index": 7,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/Algo1/Autumn14/",
+      "course_code": "CS29003",
+      "course_title": "Algorithms Laboratory",
+      "semester": "Autumn",
+      "year": "2014-2015"
+    },
+    {
+      "index": 8,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/Algo1/Autumn15/",
+      "course_code": "CS29003",
+      "course_title": "Algorithms Laboratory",
+      "semester": "Autumn 2015",
+      "year": "2015"
+    }
+  ]
+}

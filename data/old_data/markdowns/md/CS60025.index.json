@@ -1,0 +1,36 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2021AlgorithmicGameTheory/agt2021.html",
+      "course_code": "CS60025",
+      "course_title": "Algorithmic Game Theory",
+      "semester": "Winter",
+      "year": "2021"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2022AlgorithmicGameTheory/agt2022.html",
+      "course_code": "CS60025",
+      "course_title": "Algorithmic Game Theory",
+      "semester": "Winter",
+      "year": "2021"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2020AlgorithmicGameTheory/agt2020.html",
+      "course_code": "CS60025",
+      "course_title": "Algorithmic Game Theory",
+      "semester": "Winter",
+      "year": "2020"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2019AlgorithmicGameTheory/agt2019.html",
+      "course_code": "CS60025",
+      "course_title": "Algorithmic Game Theory",
+      "semester": "Winter",
+      "year": "2019"
+    }
+  ]
+}

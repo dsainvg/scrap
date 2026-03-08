@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/FADML/Spring2026/",
+      "course_code": "CS60020",
+      "course_title": "Foundations of Algorithm Design and Machine Learning",
+      "semester": "Spring 2026",
+      "year": "2026"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/FADML/Spring2025/",
+      "course_code": "CS60020",
+      "course_title": "Foundations of Algorithm Design and Machine Learning",
+      "semester": "Spring 2025",
+      "year": "2025"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~animeshm/course_algoml2017.html",
+      "course_code": "CS60020",
+      "course_title": "Foundations of Algorithm Design and Machine Learning",
+      "semester": "Spring Semester",
+      "year": "2017"
+    }
+  ]
+}

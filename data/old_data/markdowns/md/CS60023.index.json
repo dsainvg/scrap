@@ -1,0 +1,52 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~spp/CS60023_spr25.html",
+      "course_code": "CS60023",
+      "course_title": "Approximation and Online Algorithms",
+      "semester": "Spring Semester",
+      "year": "2024-25"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/%7Ekoustav.de/CS60023approx/CS60023_spr2024.html",
+      "course_code": "CS60023",
+      "course_title": "Approximation and Online Algorithms",
+      "semester": "Spring Semester 2023-24",
+      "year": "2023-24"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/%7Espp/aoa2020.html",
+      "course_code": "CS60023",
+      "course_title": "Approximation and Online Algorithms",
+      "semester": "Spring",
+      "year": "2020"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/%7Espp/aoa2019.html",
+      "course_code": "CS60023",
+      "course_title": "Approximation and Online Algorithms",
+      "semester": "Spring",
+      "year": "2019"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/%7Espp/aoa2018.html",
+      "course_code": "CS60023",
+      "course_title": "Approximation and Online Algorithms",
+      "semester": "Autumn 2018",
+      "year": "2018"
+    },
+    {
+      "index": 6,
+      "url": "https://cse.iitkgp.ac.in/%7Espp/aoa.html",
+      "course_code": "CS60023",
+      "course_title": "Approximation and Online Algorithms",
+      "semester": "Autumn 2017",
+      "year": "2017"
+    }
+  ]
+}

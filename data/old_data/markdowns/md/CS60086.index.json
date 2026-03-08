@@ -1,0 +1,52 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2026SelectedTopicsInAlgorithms/2026SelectedTopics.html",
+      "course_code": "CS60086",
+      "course_title": "Selected Topics in Algorithms",
+      "semester": null,
+      "year": "2026"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2025SelectedTopicsInAlgorithms/2025SelectedTopics.html",
+      "course_code": "CS60086",
+      "course_title": "Selected Topics in Algorithms",
+      "semester": null,
+      "year": "2025"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2024SelectedTopicsInAlgorithms/2024SelectedTopics.html",
+      "course_code": "CS60086",
+      "course_title": "Selected Topics in Algorithms",
+      "semester": null,
+      "year": "2024"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/STA/Autumn16/",
+      "course_code": "CS60086",
+      "course_title": "Selected Topics in Algorithms",
+      "semester": "Autumn 2016",
+      "year": "2016"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/STA/Autumn15/",
+      "course_code": "CS60086",
+      "course_title": "Selected Topics in Algorithms",
+      "semester": "Autumn 2015",
+      "year": "2015"
+    },
+    {
+      "index": 6,
+      "url": "https://cse.iitkgp.ac.in/%7Espp/spltopalg2014.html",
+      "course_code": "CS60086",
+      "course_title": "Selected Topics in Algorithms",
+      "semester": "Spring",
+      "year": "2014"
+    }
+  ]
+}

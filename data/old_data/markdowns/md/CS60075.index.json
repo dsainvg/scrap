@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/NLP23.html",
+      "course_code": "CS60075",
+      "course_title": "Natural Language Processing",
+      "semester": "Spring Semester",
+      "year": "2022-23"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/NLP22.html",
+      "course_code": "CS60075",
+      "course_title": "Natural Language Processing",
+      "semester": "Spring Semester",
+      "year": "2021-22"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/NLP21.html",
+      "course_code": "CS60075",
+      "course_title": "Natural Language Processing",
+      "semester": "Spring Semester",
+      "year": "2020-21"
+    }
+  ]
+}

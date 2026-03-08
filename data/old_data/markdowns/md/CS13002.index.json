@@ -1,0 +1,740 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/structure.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2056"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/datatype.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": null
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/array.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": null
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/exer2.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2005/AD/exer2.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": null
+    },
+    {
+      "index": 6,
+      "url": "https://cse.iitkgp.ac.in/~debdeep/courses_iitkgp/PDS/index.htm",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": null,
+      "year": null
+    },
+    {
+      "index": 7,
+      "url": "https://cse.iitkgp.ac.in/~debdeep/courses_iitkgp/PDS14/index.htm",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": null,
+      "year": null
+    },
+    {
+      "index": 8,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/assign.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": null
+    },
+    {
+      "index": 9,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/io.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": null
+    },
+    {
+      "index": 10,
+      "url": "https://cse.iitkgp.ac.in/pds/current/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring 2026",
+      "year": "2026"
+    },
+    {
+      "index": 11,
+      "url": "https://cse.iitkgp.ac.in/pds/current/AG",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2026"
+    },
+    {
+      "index": 12,
+      "url": "https://cse.iitkgp.ac.in/pds/current/SM",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring 2026",
+      "year": "2026"
+    },
+    {
+      "index": 13,
+      "url": "https://cse.iitkgp.ac.in/pds/current/SRB",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring 2026",
+      "year": "2026"
+    },
+    {
+      "index": 14,
+      "url": "https://cse.iitkgp.ac.in/~pds/current/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring 2026",
+      "year": "2026"
+    },
+    {
+      "index": 15,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/loop.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": null
+    },
+    {
+      "index": 16,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/PDS/Spring25/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2024-2025"
+    },
+    {
+      "index": 17,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/PDS/Spring2024/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring 2024",
+      "year": "2024"
+    },
+    {
+      "index": 18,
+      "url": "https://cse.iitkgp.ac.in/~soumya/pds-th/pds-th.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Autumn 2024 - 25",
+      "year": "2024"
+    },
+    {
+      "index": 19,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2021s/AD/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring 2021",
+      "year": "2021"
+    },
+    {
+      "index": 20,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2021s/AG/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring 2021",
+      "year": "2021"
+    },
+    {
+      "index": 21,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/software/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 22,
+      "url": "https://cse.iitkgp.ac.in/pds/semester/2023s/PAD/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": null,
+      "year": "2020"
+    },
+    {
+      "index": 23,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/PDS/Autumn2020/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Autumn",
+      "year": "2020"
+    },
+    {
+      "index": 24,
+      "url": "https://cse.iitkgp.ac.in/~palash/Courses/2020PDS/PDS2020.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": null,
+      "year": "2020"
+    },
+    {
+      "index": 25,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2023s/PAD/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": null,
+      "year": "2020"
+    },
+    {
+      "index": 26,
+      "url": "https://cse.iitkgp.ac.in/pds/semester/2018a/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Autumn 2018",
+      "year": "2018"
+    },
+    {
+      "index": 27,
+      "url": "https://cse.iitkgp.ac.in/~rogers/pds_theory/pds_theory.htm",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2018"
+    },
+    {
+      "index": 28,
+      "url": "https://cse.iitkgp.ac.in/~dsamanta/courses/pds/discussions.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": null,
+      "year": "2017"
+    },
+    {
+      "index": 29,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2017s/DSM",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": null,
+      "year": null
+    },
+    {
+      "index": 30,
+      "url": "https://cse.iitkgp.ac.in/%7Espp/pds2016.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2016"
+    },
+    {
+      "index": 31,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/ADT.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 32,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/branch.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": null
+    },
+    {
+      "index": 33,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/pds2014.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Autumn Semester 2014",
+      "year": "2014"
+    },
+    {
+      "index": 34,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2005/AD/tut1.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": null
+    },
+    {
+      "index": 35,
+      "url": "https://cse.iitkgp.ac.in/~animeshm/course_pds2012.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Autumn Semester 2012",
+      "year": "2012"
+    },
+    {
+      "index": 36,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2012s/SS/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2011-2012"
+    },
+    {
+      "index": 37,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/exer3.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 38,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2005/AD/exer3.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 39,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2009a/lecture-titles.htm",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Autumn Semester 2009",
+      "year": "2009"
+    },
+    {
+      "index": 40,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2009a/timetable.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Autumn 2009",
+      "year": "2009"
+    },
+    {
+      "index": 41,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2008Autumn/timetable.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Autumn 2008",
+      "year": "2008"
+    },
+    {
+      "index": 42,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/PDS/Spring06/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2006"
+    },
+    {
+      "index": 43,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2006/exams.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": "2006"
+    },
+    {
+      "index": 44,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2006/list/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": "2006"
+    },
+    {
+      "index": 45,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2006/timetable.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2006"
+    },
+    {
+      "index": 46,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/PDS/Spring05/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2005"
+    },
+    {
+      "index": 47,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/function.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2005"
+    },
+    {
+      "index": 48,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2005/SSN/Lab/admin.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Semester II 2004-2005",
+      "year": "2004-2005"
+    },
+    {
+      "index": 49,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/exer1.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 50,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2005/AD/exer1.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 51,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/PDS/Spring04/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2003-2004"
+    },
+    {
+      "index": 52,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/PDS/Spring03/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": "2003"
+    },
+    {
+      "index": 53,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/dynamic.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 54,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/intro.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring",
+      "year": null
+    },
+    {
+      "index": 55,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/performance.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 56,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/exer4.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 57,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/exer5.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 58,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/stackqueue.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 59,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 60,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/binsearch.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 61,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/bubble.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 62,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/complex.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 63,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/do.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 64,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/dynamic1.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 65,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/dynamic2.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 66,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/factorial.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 67,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/fibonacci.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 68,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/for.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 69,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/insertion.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 70,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/linsearch.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 71,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/list1.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 72,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/list2.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 73,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/merge.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 74,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/param.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 75,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/postfix.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 76,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/queue1.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 77,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/queue2.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 78,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/quick.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 79,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/quick2.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 80,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/reverse.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 81,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/roundrobin.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 82,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/selection.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 83,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/square.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 84,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/stack1.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 85,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/stack2.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 86,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/transpose.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 87,
+      "url": "https://cse.iitkgp.ac.in/~pds/notes/swf/while.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 88,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2005/AD/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 89,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2005/AD/exer4.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 90,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2005/AD/exer5.html",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    },
+    {
+      "index": 91,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/2005/SSN/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": null,
+      "year": null
+    },
+    {
+      "index": 92,
+      "url": "https://cse.iitkgp.ac.in/~pds/semester/notes/",
+      "course_code": "CS13002",
+      "course_title": "Programming and Data Structures",
+      "semester": "Spring semester",
+      "year": null
+    }
+  ]
+}

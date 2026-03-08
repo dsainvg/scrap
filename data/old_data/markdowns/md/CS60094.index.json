@@ -1,0 +1,60 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/CNT/Spring18/",
+      "course_code": "CS60094",
+      "course_title": "Computational Number Theory",
+      "semester": "Spring 2018",
+      "year": "2018"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/CNT/Spring17/",
+      "course_code": "CS60094",
+      "course_title": "Computational Number Theory",
+      "semester": "Spring",
+      "year": "2017"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/CNT/Spring11/",
+      "course_code": "CS60094",
+      "course_title": "Computational Number Theory",
+      "semester": "Spring",
+      "year": "2011"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/CNT/Spring10/",
+      "course_code": "CS60094",
+      "course_title": "Computational Number Theory",
+      "semester": "Spring",
+      "year": "2010"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/CNT/Spring09/",
+      "course_code": "CS60094",
+      "course_title": "Computational Number Theory",
+      "semester": "Spring",
+      "year": "2009"
+    },
+    {
+      "index": 6,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/CNT/Spring08/",
+      "course_code": "CS60094",
+      "course_title": "Computational Number Theory",
+      "semester": "Spring 2008",
+      "year": "2008"
+    },
+    {
+      "index": 7,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/CNT/Spring07/",
+      "course_code": "CS60094",
+      "course_title": "Computational Number Theory",
+      "semester": "Spring 2007",
+      "year": "2007"
+    }
+  ]
+}

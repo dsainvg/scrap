@@ -1,0 +1,36 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/SP2025.html",
+      "course_code": "CS60009",
+      "course_title": "Smartphone Computing & Application",
+      "semester": "Autumn Semester 2025",
+      "year": "2025"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/SP2020.html",
+      "course_code": "CS60009",
+      "course_title": "Smartphone Computing & Application",
+      "semester": "Autumn Semester",
+      "year": "2020"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/SP2019.html",
+      "course_code": "CS60009",
+      "course_title": "Smartphone Computing & Application",
+      "semester": "Autumn Semester 2019",
+      "year": "2019"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/SP2017.html",
+      "course_code": "CS60009",
+      "course_title": "Smartphone Computing & Application",
+      "semester": "Autumn Semester 2017",
+      "year": "2017"
+    }
+  ]
+}

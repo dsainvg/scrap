@@ -1,0 +1,36 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~sourangshu/coursefiles/cs60050_2025s.html",
+      "course_code": "CS60050",
+      "course_title": "Machine Learning",
+      "semester": "Spring",
+      "year": "2025"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/ML/Spring2024/",
+      "course_code": "CS60050",
+      "course_title": "Machine Learning",
+      "semester": "Spring 2024",
+      "year": "2024"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/ML/Spring2023/",
+      "course_code": "CS60050",
+      "course_title": "Machine Learning",
+      "semester": "Spring 2023",
+      "year": "2023"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/ML/Spring2021/",
+      "course_code": "CS60050",
+      "course_title": "Machine Learning",
+      "semester": "Spring",
+      "year": "2021"
+    }
+  ]
+}

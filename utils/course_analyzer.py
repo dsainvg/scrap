@@ -394,9 +394,17 @@ def classify_manual_page_type(extracted: dict, html: str) -> str:
 # STEP 4 — AI enrichment via NVIDIA LLM
 # ===========================================================================
 
-def _call_nvidia_api(prompt: str) -> str:
+def _call_nvidia_api(prompt: str, timeout: int = 120) -> str:
     """
     Send *prompt* to the NVIDIA chat completions endpoint using key rotation.
+
+    Parameters
+    ----------
+    prompt : str
+        The prompt to send to the API
+    timeout : int
+        Request timeout in seconds (default: 120). Increased from 60 to handle
+        slower models like llama-3.3-70b-instruct which can take 15-60s per request.
 
     Returns
     -------
@@ -413,6 +421,7 @@ def _call_nvidia_api(prompt: str) -> str:
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Accept": "application/json",
+        "Content-Type": "application/json",
     }
     payload = {
         "model": CONTENT_VERIFICATION_MODEL,
@@ -433,23 +442,41 @@ def _call_nvidia_api(prompt: str) -> str:
     }
 
     try:
+        logger.debug(f"Calling NVIDIA API with model={CONTENT_VERIFICATION_MODEL}, timeout={timeout}s")
         response = requests.post(
-            NVIDIA_API_ENDPOINT, headers=headers, json=payload, timeout=60
+            NVIDIA_API_ENDPOINT, headers=headers, json=payload, timeout=timeout
         )
         response.raise_for_status()
         key_manager.report_success(api_key)
         data = response.json()
-        return data["choices"][0]["message"]["content"].strip()
+        content = data["choices"][0]["message"]["content"].strip()
+        logger.debug(f"API call successful, response length: {len(content)} chars")
+        return content
+    except requests.Timeout as exc:
+        key_manager.report_error(api_key)
+        error_msg = (
+            f"NVIDIA API request timed out after {timeout}s. "
+            f"Model: {CONTENT_VERIFICATION_MODEL}. "
+            f"Consider: 1) Using a faster model (e.g., meta/llama-3.1-70b-instruct), "
+            f"2) Reducing MAX_CONTENT_LENGTH in config, "
+            f"3) Increasing timeout further."
+        )
+        logger.error(error_msg)
+        raise RuntimeError(error_msg) from exc
     except requests.RequestException as exc:
         key_manager.report_error(api_key)
-        raise RuntimeError(f"NVIDIA API request failed: {exc}") from exc
+        error_msg = f"NVIDIA API request failed: {exc}"
+        if hasattr(exc, 'response') and exc.response is not None:
+            error_msg += f" | Status: {exc.response.status_code} | Response: {exc.response.text[:200]}"
+        raise RuntimeError(error_msg) from exc
 
 
 def _parse_ai_json(text: str) -> dict:
     """
     Robustly extract a JSON object from *text*.
 
-    Handles markdown code fences and stray prose around the JSON block.
+    Handles markdown code fences, stray prose around the JSON block,
+    and incomplete responses.
     """
     # Direct parse
     try:
@@ -464,13 +491,31 @@ def _parse_ai_json(text: str) -> dict:
     except json.JSONDecodeError:
         pass
 
-    # Grab the first {...} block
-    m = re.search(r'\{.*?\}', clean, re.DOTALL)
+    # Try to find the main JSON object (greedy match for nested structures)
+    # Look for opening { and try to find the matching closing }
+    m = re.search(r'\{.*\}', clean, re.DOTALL)
     if m:
         try:
             return json.loads(m.group(0))
         except json.JSONDecodeError:
             pass
+    
+    # If still failing, try to extract and repair incomplete JSON
+    # Find the first { and take everything after it
+    start = clean.find('{')
+    if start != -1:
+        potential_json = clean[start:]
+        
+        # Try adding closing braces if incomplete
+        for _ in range(5):  # Try up to 5 levels of nesting
+            try:
+                return json.loads(potential_json)
+            except json.JSONDecodeError as e:
+                # If error is about unexpected end, try adding }
+                if 'Expecting' in str(e) or 'Unterminated' in str(e):
+                    potential_json += '}'
+                else:
+                    break
 
     raise ValueError(f"Cannot parse JSON from AI response:\n{text[:400]}")
 

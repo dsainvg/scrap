@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/SC16.html",
+      "course_code": "CS60017",
+      "course_title": "Social Computing",
+      "semester": "Fall Semester",
+      "year": "2016-17"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/SC15.html",
+      "course_code": "CS60017",
+      "course_title": "Social Computing",
+      "semester": "Fall Semester",
+      "year": "2015-16"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/SC14.html",
+      "course_code": "CS60017",
+      "course_title": "Social Computing",
+      "semester": "Fall Semester",
+      "year": "2014-15"
+    }
+  ]
+}

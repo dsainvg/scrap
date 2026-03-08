@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~animeshm/course_aieth2022.html",
+      "course_code": "CS60016",
+      "course_title": "AI and Ethics",
+      "semester": "Spring Semester 2022",
+      "year": "2022"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~animeshm/course_aieth2021.html",
+      "course_code": "CS60016",
+      "course_title": "AI and Ethics",
+      "semester": "Spring Semester 2021",
+      "year": "2021"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~animeshm/course_aieth2020.html",
+      "course_code": "CS60016",
+      "course_title": "AI and Ethics",
+      "semester": "Spring Semester 2020",
+      "year": "2020"
+    }
+  ]
+}

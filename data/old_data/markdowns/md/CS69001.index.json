@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/CompLab-I/Autumn19/",
+      "course_code": "CS69001",
+      "course_title": "Computing Laboratory – I",
+      "semester": "Autumn 2019",
+      "year": "2019"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/CompLab-I/Autumn18/",
+      "course_code": "CS69001",
+      "course_title": "Computing Laboratory – I",
+      "semester": "Autumn 2018",
+      "year": "2018"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/CompLab-I/Autumn09/",
+      "course_code": "CS69001",
+      "course_title": "Computing Laboratory – I",
+      "semester": "Autumn",
+      "year": "2009"
+    }
+  ]
+}

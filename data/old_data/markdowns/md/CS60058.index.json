@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~soumya/fts/attempt3/fts3.html",
+      "course_code": "CS60058",
+      "course_title": "Fault Tolerant Systems",
+      "semester": "Spring 2016",
+      "year": "2016"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~soumya/fts/attempt1/fts.html",
+      "course_code": "CS60058",
+      "course_title": "Fault Tolerant Systems",
+      "semester": "Spring 2014",
+      "year": "2014"
+    }
+  ]
+}

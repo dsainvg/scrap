@@ -1,0 +1,52 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/FoCry/Spring17/",
+      "course_code": "CS60088",
+      "course_title": "Foundations of Cryptography",
+      "semester": "Spring 2017",
+      "year": "2017"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/FoCry/Spring16/",
+      "course_code": "CS60088",
+      "course_title": "Foundations of Cryptography",
+      "semester": "Spring 2016",
+      "year": "2016"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/FoCry/Spring15/",
+      "course_code": "CS60088",
+      "course_title": "Foundations of Cryptography",
+      "semester": "Spring",
+      "year": "2015"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/FoCry/Spring14/",
+      "course_code": "CS60088",
+      "course_title": "Foundations of Cryptography",
+      "semester": "Spring 2014",
+      "year": "2014"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~debdeep/courses_iitkgp/FCrypto/index.htm",
+      "course_code": "CS60088",
+      "course_title": "Foundations of Cryptography",
+      "semester": null,
+      "year": null
+    },
+    {
+      "index": 6,
+      "url": "https://cse.iitkgp.ac.in/~debdeep/courses_iitkgp/FormalCrypto/index.htm",
+      "course_code": "CS60088",
+      "course_title": "Foundations of Cryptography",
+      "semester": null,
+      "year": null
+    }
+  ]
+}

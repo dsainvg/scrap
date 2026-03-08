@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~debdeep/courses_iitkgp/Crypto/index.htm",
+      "course_code": "CS60041",
+      "course_title": "Cryptography and network security",
+      "semester": null,
+      "year": null
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/CNS/Autumn03/",
+      "course_code": "CS60041",
+      "course_title": "Cryptography and network security",
+      "semester": "Autumn",
+      "year": "2003"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/Compiler/Autumn25/",
+      "course_code": "CS31003",
+      "course_title": "Compilers Theory and Lab",
+      "semester": "Autumn 2025",
+      "year": "2025"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/Compiler/Autumn25/",
+      "course_code": "CS31003",
+      "course_title": "Compilers Theory and Lab",
+      "semester": "Autumn 2025",
+      "year": "2025"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/lab/Compiler/Autumn24/",
+      "course_code": "CS31003",
+      "course_title": "Compilers Theory and Lab",
+      "semester": "Autumn 2024",
+      "year": "2024"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/Compiler/Autumn24/",
+      "course_code": "CS31003",
+      "course_title": "Compilers Theory and Lab",
+      "semester": "Autumn 2024",
+      "year": "2024"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/compiler2024.html",
+      "course_code": "CS31003",
+      "course_title": "Compilers Theory and Lab",
+      "semester": "Autumn Semester 2024",
+      "year": "2024"
+    },
+    {
+      "index": 6,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/compiler2023.html",
+      "course_code": "CS31003",
+      "course_title": "Compilers Theory and Lab",
+      "semester": "Autumn Semester",
+      "year": "2023"
+    },
+    {
+      "index": 7,
+      "url": "https://cse.iitkgp.ac.in/~bivasm/compiler2022.html",
+      "course_code": "CS31003",
+      "course_title": "Compilers Theory and Lab",
+      "semester": "Autumn Semester 2022",
+      "year": "2022"
+    }
+  ]
+}

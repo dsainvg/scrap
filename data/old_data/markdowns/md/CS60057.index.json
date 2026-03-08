@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/SNLP16.html",
+      "course_code": "CS60057",
+      "course_title": "Speech and Natural Language Processing",
+      "semester": "Fall Semester",
+      "year": "2016-17"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/SNLP15.html",
+      "course_code": "CS60057",
+      "course_title": "Speech and Natural Language Processing",
+      "semester": "Fall Semester",
+      "year": "2015-16"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/SNLP14.html",
+      "course_code": "CS60057",
+      "course_title": "Speech and Natural Language Processing",
+      "semester": "Fall Semester",
+      "year": "2014-15"
+    }
+  ]
+}

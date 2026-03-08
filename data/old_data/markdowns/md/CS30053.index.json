@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~debdeep/courses_iitkgp/FOC/index.htm",
+      "course_code": "CS30053",
+      "course_title": "Foundations of computing",
+      "semester": null,
+      "year": null
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/FOC/Autumn05/",
+      "course_code": "CS30053",
+      "course_title": "Foundations of computing",
+      "semester": "Autumn 2005",
+      "year": "2005"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~abhij/course/theory/FOC/Autumn04/",
+      "course_code": "CS30053",
+      "course_title": "Foundations of computing",
+      "semester": "Autumn 2004",
+      "year": "2004"
+    }
+  ]
+}

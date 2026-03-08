@@ -1,0 +1,20 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~abhijnan/iitd-courses/computer-networks-2022.html",
+      "course_code": "COL334",
+      "course_title": "COL334/672: Computer Networks",
+      "semester": "Diwali Semester 2022",
+      "year": "2022"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~abhijnan/iitd-courses/computer-networks-2021.html",
+      "course_code": "COL334",
+      "course_title": "COL334/672: Computer Networks",
+      "semester": "Diwali Semester",
+      "year": "2021"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/RL/Autumn2024/",
+      "course_code": "CS60077",
+      "course_title": "Reinforcement Learning",
+      "semester": "Autumn 2024",
+      "year": "2024"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/RL/Autumn2023/",
+      "course_code": "CS60077",
+      "course_title": "Reinforcement Learning",
+      "semester": "Autumn 2023",
+      "year": "2023"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/RL/Autumn2022/",
+      "course_code": "CS60077",
+      "course_title": "Reinforcement Learning",
+      "semester": "Autumn 2022",
+      "year": "2022"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~adas/courses/rl_aut2021/rl_aut2021.php",
+      "course_code": "CS60077",
+      "course_title": "Reinforcement Learning",
+      "semester": "Autumn 2021",
+      "year": "2021"
+    },
+    {
+      "index": 5,
+      "url": "https://cse.iitkgp.ac.in/~adas/courses/rl_aut2020/rl_aut2020.php",
+      "course_code": "CS60077",
+      "course_title": "Reinforcement Learning",
+      "semester": "Autumn 2020",
+      "year": "2020"
+    },
+    {
+      "index": 6,
+      "url": "https://cse.iitkgp.ac.in/~adas/courses/rl_aut2019/rl_aut2019.php",
+      "course_code": "CS60077",
+      "course_title": "Reinforcement Learning",
+      "semester": "Autumn 2019",
+      "year": "2019"
+    }
+  ]
+}

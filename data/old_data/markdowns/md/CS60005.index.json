@@ -1,0 +1,36 @@
+{
+  "links": [
+    {
+      "index": 1,
+      "url": "https://cse.iitkgp.ac.in/~pawang/courses/FOCS25.html",
+      "course_code": "CS60005",
+      "course_title": "Foundations of Computing Science",
+      "semester": "Autumn Semester",
+      "year": "2025"
+    },
+    {
+      "index": 2,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/FOCS/Autumn2024/",
+      "course_code": "CS60005",
+      "course_title": "Foundations of Computing Science",
+      "semester": "Autumn 2024",
+      "year": "2024"
+    },
+    {
+      "index": 3,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/FOCS/Autumn2022/",
+      "course_code": "CS60005",
+      "course_title": "Foundations of Computing Science",
+      "semester": "Autumn",
+      "year": "2022"
+    },
+    {
+      "index": 4,
+      "url": "https://cse.iitkgp.ac.in/~aritrah/course/theory/FOCS/Autumn2021/",
+      "course_code": "CS60005",
+      "course_title": "Foundations of Computing Science",
+      "semester": "Autumn 2021",
+      "year": "2021"
+    }
+  ]
+}
